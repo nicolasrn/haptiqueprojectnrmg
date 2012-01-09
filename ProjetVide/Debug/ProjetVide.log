@@ -1,11 +1,10 @@
-﻿La génération a démarré 09/01/2012 14:06:23.
+﻿La génération a démarré 09/01/2012 14:25:43.
      1>Projet "C:\Users\NicolasMac\Documents\Visual Studio 2010\Projects\Haptique\ProjetVide\ProjetVide.vcxproj" sur le nœud 2 (build cible(s)).
      1>InitializeBuildStatus:
          Création de "Debug\ProjetVide.unsuccessfulbuild", car "AlwaysCreate" a été spécifié.
        ClCompile:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\wxWidgets-2.8.12\include" /I"C:\wxWidgets-2.8.12/lib/vc_lib/mswd" /ZI /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D WINVER=0x0400 /D wxUSE_GUI=1 /D __WXDEBUG__ /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt MaFenetre.cpp
-         MaFenetre.cpp
-     1>c:\users\nicolasmac\documents\visual studio 2010\projects\haptique\projetvide\mafenetre.cpp(24): warning C4100: 'event' : paramètre formel non référencé
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\wxWidgets-2.8.12\include" /I"C:\wxWidgets-2.8.12/lib/vc_lib/mswd" /ZI /nologo /W4 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D WINVER=0x0400 /D wxUSE_GUI=1 /D __WXDEBUG__ /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GUITerrain.cpp
+         GUITerrain.cpp
        ManifestResourceCompile:
          Toutes les sorties sont à jour.
        Link:
@@ -32,4 +31,4 @@
 
 La génération a réussi.
 
-Temps écoulé 00:00:04.35
+Temps écoulé 00:00:03.23
