@@ -1,36 +1,36 @@
+/*!
+ * \file Raquette.h
+ * Fichier concernant le modele de la Raquette
+ */
+
 #pragma once
 
 #ifndef __RAQUETTE__
 #define __RAQUETTE__
 
-class Raquette
+#include "Element.h"
+
+/*!
+ * \brief Représente le modele de la raquette
+ */
+class Raquette : public Element
 {
-private:
-	int x, y;
 
 public:
+	/*!
+	 * \brief Constructeur
+	 * Constructeur du modele
+	 * \param x : l'abscisse
+	 * \param x : l'ordonnées
+	 */
 	Raquette(const int &x, const int &y);
-	~Raquette(void);
-
-	int getX() const
-	{
-		return x;
-	}
 	
-	int getY() const
-	{
-		return y;
-	}
-
-	void setX(const int &x)
-	{
-		this->x = x;
-	}
-
-	void setY(const int &y)
-	{
-		this->y = y;
-	}
+	/*!
+	 * \brief Destructeur
+	 * Destructeur 
+	 */
+	~Raquette(void);
+	
 };
 
 #endif
