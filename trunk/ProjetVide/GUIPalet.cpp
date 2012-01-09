@@ -12,5 +12,6 @@ GUIPalet::~GUIPalet(void)
 
 void GUIPalet::dessiner(wxClientDC *dc)
 {
-	dc->DrawCircle(palet->getX(), palet->getY(), 10);
+	//dc->DrawEllipse(palet->getX(), palet->getY(), palet->getWidth(), palet->getHeight());
+	dc->DrawCircle(palet->getX(), palet->getY(), palet->getWidth());
 }

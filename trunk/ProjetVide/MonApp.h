@@ -1,3 +1,8 @@
+/*!
+ * \file ManApp.h
+ * Fichier de base d'application
+ */
+
 #ifndef _MONAPP_H
 #define _MONAPP_H
 
@@ -12,7 +17,13 @@
 	#endif*/
 
 	#include <wx/wx.h>
-
+	
+	/*!
+	 * \class MonApp
+     * \brief Permet de lancer l'application
+     *
+     *  Classe permettant de lancer l'application
+     */
 	class MonApp : public wxApp
 	{
 		virtual bool OnInit();

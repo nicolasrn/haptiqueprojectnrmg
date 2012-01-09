@@ -78,7 +78,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Element.h" />
     <ClInclude Include="ElementAAfficher.h" />
+    <ClInclude Include="GestionCollision.h" />
     <ClInclude Include="GUIPalet.h" />
     <ClInclude Include="GUIRaquette.h" />
     <ClInclude Include="GUITerrain.h" />
@@ -98,6 +100,9 @@
     <ClCompile Include="Palet.cpp" />
     <ClCompile Include="Raquette.cpp" />
     <ClCompile Include="Terrain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
