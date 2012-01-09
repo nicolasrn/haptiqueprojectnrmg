@@ -32,7 +32,7 @@ public:
 		bool collision = false;
 		for(std::vector<Element*>::iterator i = b.begin(); i != b.end(); i++)
 		{
-			//(*i)->
+
 		}
 		return collision;
 	}
