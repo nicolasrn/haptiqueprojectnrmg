@@ -3,6 +3,7 @@
 BEGIN_EVENT_TABLE(GUITerrain, wxPanel)
 	EVT_MOTION(GUITerrain::onSourisMove) 
 END_EVENT_TABLE();
+
 GUITerrain::GUITerrain(wxWindow* parent, Terrain *terrain, wxWindowID id) : wxPanel(parent, id), terrain(terrain)
 {
 	guiHuman = new GUIRaquette(terrain->getHuman());
@@ -27,7 +28,6 @@ void GUITerrain::dessiner(wxClientDC *dc)
 void GUITerrain::onSourisMove(wxMouseEvent& event)
 {
 	//wxMessageBox( wxT(wxString::Format("%d", event.GetX()) + " " + wxString::Format("%d", event.GetY())), wxT("Info mouse motion"), wxICON_INFORMATION);
-	terrain->getPalet()->setX(event.GetX());
-	terrain->getPalet()->setY(event.GetY());
+	terrain->getHuman()->setX(event.GetX());
+	terrain->getHuman()->setY(event.GetY());
 }
-	
