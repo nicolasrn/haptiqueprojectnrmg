@@ -8,11 +8,16 @@ GUITerrain::GUITerrain(wxWindow* parent, Terrain *terrain, wxWindowID id) : wxPa
 {
 	label = new wxStaticText(this, -1, "Score : ");
 	parent->SetSize(terrain->getWidth(), terrain->getHeight() + label->GetSize().GetHeight());
-	terrain->setYStart(label->GetSize().GetHeight());
+	terrain->setYStart(label->GetSize().GetHeight() + 3);
 
 	guiHuman = new GUIRaquette(terrain->getHuman());
 	guiIA = new GUIRaquette(terrain->getIa());
 	guiPalet = new GUIPalet(terrain->getPalet());
+	
+	terrain->getButNord()->setY(terrain->getYStart() + 1);
+
+	guiButNord = new GUIBut(terrain->getButNord());
+	guiButSud = new GUIBut(terrain->getButSud());
 }
 
 GUITerrain::~GUITerrain()
@@ -20,6 +25,14 @@ GUITerrain::~GUITerrain()
 	delete guiHuman;
 	delete guiIA;
 	delete guiPalet;
+	delete guiButNord;
+	delete guiButSud;
+
+	guiPalet = NULL;
+	guiIA = NULL;
+	guiHuman = NULL;
+	guiButNord = NULL;
+	guiButSud = NULL;
 }
 
 void GUITerrain::dessiner(wxClientDC *dc)
@@ -27,6 +40,9 @@ void GUITerrain::dessiner(wxClientDC *dc)
 	guiHuman->dessiner(dc);
 	guiIA->dessiner(dc);
 	guiPalet->dessiner(dc);
+	
+	guiButNord->dessiner(dc);
+	guiButSud->dessiner(dc);
 }
 
 void GUITerrain::onSourisMove(wxMouseEvent& event)
