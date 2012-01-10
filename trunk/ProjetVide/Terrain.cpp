@@ -1,6 +1,6 @@
 #include "Terrain.h"
 
-Terrain::Terrain(const int &width, const int &height) : Element(0, 0, width, height)
+Terrain::Terrain(const int &width, const int &height) : Element(0, 0, width, height), yStart(0)
 {
 	list = std::vector<Element*>();
 	//initialisation des composants

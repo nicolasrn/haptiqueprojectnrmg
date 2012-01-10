@@ -25,6 +25,7 @@ private:
 	std::vector<Element*> list; /*! Liste des objets présents sur le terrain */
 	Raquette *human, *ia;/*!< Raquete du joueur de l'ordinateur */
 	Palet *palet;/*!< Le palet */
+	int yStart;
 
 public:
 	/*!
@@ -76,7 +77,25 @@ public:
 	{
 		return list;
 	}
-	
+
+	/*!
+	 * \brief Getteur
+	 * Getteur du yStart
+	 */
+	int getYStart()const
+	{
+		return yStart;
+	}
+
+	/*!
+	 * \brief Setteur
+	 * Setteur du yStart
+	 * \param ystart : la position initial
+	 */
+	void setYStart(const int &ystart)
+	{
+		this->yStart = ystart;
+	}
 };
 
 #endif
