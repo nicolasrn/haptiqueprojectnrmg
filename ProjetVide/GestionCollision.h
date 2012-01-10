@@ -10,8 +10,10 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 #include "Palet.h"
+#include "Terrain.h"
 #include "Element.h"
 
 /*!
@@ -21,21 +23,45 @@ class GestionCollision
 {
 public:
 	/*!
-	 * \brief charge de detecter les collisions
-	 * charge de detecter les collisions
+	 * \brief calcul la distance entre 2 points
+	 * calcul la distance entre 2 points dans un repere orthogonal
+	 * \param x1 : abscisse du premier point
+	 * \param y1 : ordonnee du premier point
+	 * \param x2 : abscisse du second point
+	 * \param y2 : ordonnee du second point
+	 * \return double : la distance
+	 */
+	static double distance( int x1, int y1, int x2, int y2 );
+	
+	/*!
+	 * \brief charge de detecter les collisions entre des objets circulaires
+	 * charge de detecter les collisions entre des objets circulaires
 	 * \param a : le palet
 	 * \param b : le reste
+	 * \param elt : en sortie retourne l'objet qui est entré en collision avec le palet
 	 * \return bool : true si ou false sinon
 	 */
-	static bool isCollisionBetween(Palet *a, std::vector<Element *> b)
-	{
-		bool collision = false;
-		for(std::vector<Element*>::iterator i = b.begin(); i != b.end(); i++)
-		{
+	static bool isCircleCollisionBetween(Palet *a, std::vector<Element *> list, Element **elt);
 
-		}
-		return collision;
-	}
+	/*!
+	 * \brief charge de detecter les collisions entre des objets cercle et rectangle
+	 * charge de detecter les collisions entre des objets cercle et rectangle
+	 * \param A : le palet
+	 * \param B : le rectangle
+	 * \return bool : true si ou false sinon
+	 */
+	static bool isCircleSquareCollisionBetween(Palet *A, Element *B);
+	
+	/*!
+	 * \brief charge de detecter les collisions entre des objets cercle et le terrain
+	 * charge de detecter les collisions entre des objets cercle et le terrain
+	 * \param A : le palet
+	 * \param B : le terrain
+	 * \param dx : resolution de la direction
+	 * \param dy : resolution de la direction
+	 * \return bool : true si ou false sinon
+	 */
+	static bool isCircleGroundCollisionBetween(Palet *p, Terrain *t, int *dx, int *dy);
 };
 
 #endif

@@ -17,6 +17,8 @@
 	#include <wx/msgdlg.h>
 	#include "Terrain.h"
 	#include "GUITerrain.h"
+	#include "GestionCollision.h"
+	#include "Controleur.h"
 
 	/*!
 	 * \enum 
@@ -36,12 +38,14 @@
 	class MaFenetre : public wxFrame
 	{
 	private:
+
 		Terrain *terrain; /*!< Modele représentant le terrain*/
 		GUITerrain *guiTerrain; /*!< Vue représentant le terrain*/
 
 		int width, height;/*!< Représente la taille et la hauteur de la vue*/
 
-		wxTimer *timer; /*!< Va servir de base au controleur */
+		Controleur *controleur;/*!< Le controleur */
+		//wxTimer *timer; /*!< Va servir de base au controleur */
 
 		/*!
 		 * \brief permet la création du menu
@@ -80,13 +84,6 @@
 		 * \param event : l'evenement
 		 */
 		void onQuit(wxCommandEvent& event);
-		
-		/*!
-		 * \brief Methode executer tous les n milliseconde
-		 * Permet de mettre a jour l'interface
-		 * \param event : l'evenement
-		 */
-		void onTimerEvent(wxTimerEvent& event);
 		
 		DECLARE_EVENT_TABLE();
 	};

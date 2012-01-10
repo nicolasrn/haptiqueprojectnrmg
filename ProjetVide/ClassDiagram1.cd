@@ -31,7 +31,7 @@
   <Class Name="Palet" Collapsed="true">
     <Position X="2.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAACAAAAAAAAgGAAAEAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <HashCode>gAAAAAAAAAAAAAAAAAgGAAAEAAAAAAAAAAAAAAEAAAA=</HashCode>
       <FileName>Palet.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -61,13 +61,6 @@
     <TypeIdentifier>
       <HashCode>AQAAAAAAAAAAgAAAAAABAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GUIPalet.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GestionCollision" Collapsed="true">
-    <Position X="7.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
-      <FileName>GestionCollision.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Element" Collapsed="true">

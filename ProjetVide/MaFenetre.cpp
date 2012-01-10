@@ -3,7 +3,6 @@
 using namespace std;
 
 BEGIN_EVENT_TABLE(MaFenetre, wxFrame)
-	EVT_TIMER(-1, MaFenetre::onTimerEvent)
 	EVT_MENU(APPNOUVEAUJEU, MaFenetre::onNouveauJeu)
 	EVT_MENU(APPQUIT, MaFenetre::onQuit)
 END_EVENT_TABLE();
@@ -13,8 +12,11 @@ MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height)
 	this->SetSize(width, height);
 	this->terrain = new Terrain(width, height);
 	this->guiTerrain = new GUITerrain(this, terrain);
-	this->timer = new wxTimer(this);
-	this->timer->Start(100);
+
+	this->controleur = new Controleur(terrain, guiTerrain);
+	this->controleur->start(1);
+	//this->timer = new wxTimer(this);
+	//this->timer->Start(1);
 
 	this->creerMenu();
 }
@@ -38,26 +40,15 @@ void MaFenetre::creerMenu()
 
 void MaFenetre::onNouveauJeu(wxCommandEvent& event)
 {
-	timer->Start(100);
+	this->controleur->stop();
+	this->controleur->start(1);
+	//timer->Stop();
+	//timer->Start(1);
 }
 
 void MaFenetre::onQuit(wxCommandEvent& event)
 {
+	//timer->Stop();
+	this->controleur->stop();
 	Close();
-}
-
-/**
- * événement controleur
- */
-void MaFenetre::onTimerEvent(wxTimerEvent& event)
-{
-	//*
-	//controle
-	GestionCollision::isCollisionBetween(terrain->getPalet(), terrain->getList());
-
-	//mise à jour de la vue
-	wxClientDC dc(guiTerrain);
-	dc.Clear();
-	guiTerrain->dessiner(&dc);
-	//*/
 }
