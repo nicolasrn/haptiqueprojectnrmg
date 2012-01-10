@@ -21,6 +21,7 @@ MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height)
 MaFenetre::~MaFenetre()
 {
 	delete terrain;
+	delete guiTerrain;
 }
 
 void MaFenetre::creerMenu()

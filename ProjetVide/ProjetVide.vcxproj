@@ -78,10 +78,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="But.h" />
     <ClInclude Include="Controleur.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="ElementAAfficher.h" />
     <ClInclude Include="GestionCollision.h" />
+    <ClInclude Include="GUIBut.h" />
     <ClInclude Include="GUIPalet.h" />
     <ClInclude Include="GUIRaquette.h" />
     <ClInclude Include="GUITerrain.h" />
@@ -92,9 +94,11 @@
     <ClInclude Include="Terrain.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="But.cpp" />
     <ClCompile Include="Controleur.cpp" />
     <ClCompile Include="ElementAAfficher.cpp" />
     <ClCompile Include="GestionCollision.cpp" />
+    <ClCompile Include="GUIBut.cpp" />
     <ClCompile Include="GUIPalet.cpp" />
     <ClCompile Include="GUIRaquette.cpp" />
     <ClCompile Include="GUITerrain.cpp" />

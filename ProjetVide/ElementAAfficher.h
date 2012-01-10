@@ -9,6 +9,7 @@
 #define __EltAAficher__
 
 #include <wx/dcclient.h>
+#include <wx/pen.h>
 
 /*!
  * \brief Permet de surcharger une methode d'affichage

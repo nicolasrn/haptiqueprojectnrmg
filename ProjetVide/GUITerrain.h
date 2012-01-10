@@ -15,6 +15,7 @@
 #include "Terrain.h"
 #include "GUIPalet.h"
 #include "GUIRaquette.h"
+#include "GUIBut.h"
 
 /*!
  * \brief la vue terrain
@@ -27,6 +28,7 @@ private:
 
 	GUIRaquette *guiHuman, *guiIA; /*!< La vue raquette */
 	GUIPalet *guiPalet; /*!< La vue du palet */
+	GUIBut *guiButNord, *guiButSud; /*!< La vue des buts */
 	wxStaticText *label; /*!< La vue du score */
 
 public:

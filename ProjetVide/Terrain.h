@@ -15,6 +15,7 @@
 #include "Element.h"
 #include "Raquette.h"
 #include "Palet.h"
+#include "But.h"
 
 /*!
  * \brief Représente le modele du terrain
@@ -25,7 +26,8 @@ private:
 	std::vector<Element*> list; /*! Liste des objets présents sur le terrain */
 	Raquette *human, *ia;/*!< Raquete du joueur de l'ordinateur */
 	Palet *palet;/*!< Le palet */
-	int yStart;
+	But *butNord, *butSud; /*!< Represente les 2 buts */
+	int yStart; /*!< Position a partir de laquelle le terrain commence sur la GUI*/
 
 public:
 	/*!
@@ -69,6 +71,24 @@ public:
 		return palet;
 	}
 	
+	/*!
+	 * \brief Getteur
+	 * Getteur du butNord
+	 */
+	But *getButNord()
+	{
+		return butNord;
+	}
+	
+	/*!
+	 * \brief Getteur
+	 * Getteur du butSud
+	 */
+	But *getButSud()
+	{
+		return butSud;
+	}
+
 	/*!
 	 * \brief Getteur
 	 * Getteur de la liste des elements
