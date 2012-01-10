@@ -9,6 +9,7 @@
 
 #include <wx/msgdlg.h>
 #include <wx/dcclient.h>
+#include <wx/stattext.h>
 
 #include "ElementAAfficher.h"
 #include "Terrain.h"
@@ -26,6 +27,7 @@ private:
 
 	GUIRaquette *guiHuman, *guiIA; /*!< La vue raquette */
 	GUIPalet *guiPalet; /*!< La vue du palet */
+	wxStaticText *label; /*!< La vue du score */
 
 public:
 	/*!
@@ -57,6 +59,16 @@ public:
 	 * \param event : l'évenement
 	 */
 	void onSourisMove(wxMouseEvent& event);
+
+	/*!
+	 * \brief Getteur du label score
+	 * Getteur du label score
+	 * \return wxStaticText
+	 */
+	wxStaticText* getLabelScore()const
+	{
+		return label;
+	}
 	
 	DECLARE_EVENT_TABLE();
 };

@@ -6,6 +6,10 @@ END_EVENT_TABLE();
 
 GUITerrain::GUITerrain(wxWindow* parent, Terrain *terrain, wxWindowID id) : wxPanel(parent, id), terrain(terrain)
 {
+	label = new wxStaticText(this, -1, "Score : ");
+	parent->SetSize(terrain->getWidth(), terrain->getHeight() + label->GetSize().GetHeight());
+	terrain->setYStart(label->GetSize().GetHeight());
+
 	guiHuman = new GUIRaquette(terrain->getHuman());
 	guiIA = new GUIRaquette(terrain->getIa());
 	guiPalet = new GUIPalet(terrain->getPalet());
