@@ -9,10 +9,10 @@
 #define __TERRAIN__
 
 #include <iostream>
+#include <vector>
 #include <wx/panel.h>
 
 #include "Element.h"
-#include "GestionCollision.h"
 #include "Raquette.h"
 #include "Palet.h"
 
@@ -77,7 +77,6 @@ public:
 		return list;
 	}
 	
-	void traitementCollision();
 };
 
 #endif

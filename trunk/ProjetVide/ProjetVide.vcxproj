@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Controleur.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="ElementAAfficher.h" />
     <ClInclude Include="GestionCollision.h" />
@@ -91,7 +92,9 @@
     <ClInclude Include="Terrain.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Controleur.cpp" />
     <ClCompile Include="ElementAAfficher.cpp" />
+    <ClCompile Include="GestionCollision.cpp" />
     <ClCompile Include="GUIPalet.cpp" />
     <ClCompile Include="GUIRaquette.cpp" />
     <ClCompile Include="GUITerrain.cpp" />
