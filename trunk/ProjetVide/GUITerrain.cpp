@@ -39,6 +39,9 @@ GUITerrain::~GUITerrain()
 
 void GUITerrain::dessiner(wxClientDC *dc)
 {
+	dc->DrawLine(0, (this->terrain->getHeight() - (bandeau->getHeight() + 3))/2, this->terrain->getWidth(), (this->terrain->getHeight() - (bandeau->getHeight() + 3))/2);
+
+	//delegation aux objets de se dessiner
 	guiHuman->dessiner(dc);
 	guiIA->dessiner(dc);
 	guiPalet->dessiner(dc);
