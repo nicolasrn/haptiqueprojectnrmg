@@ -13,6 +13,8 @@
 	#ifndef WX_PRECOMP
 		#include <wx/wx.h>
 	#endif
+
+	#include <IFC.h>
 	
 	#include <wx/msgdlg.h>
 	#include "Terrain.h"
@@ -45,7 +47,8 @@
 		int width, height;/*!< Représente la taille et la hauteur de la vue*/
 
 		Controleur *controleur;/*!< Le controleur */
-		//wxTimer *timer; /*!< Va servir de base au controleur */
+		
+		CImmMouse *mSouris;
 
 		/*!
 		 * \brief permet la création du menu

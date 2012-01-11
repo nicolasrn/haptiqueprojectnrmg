@@ -10,8 +10,8 @@ Controleur::Controleur(Terrain *terrain, GUITerrain *guiTerrain) :
 	wxEvtHandler(), terrain(terrain), guiTerrain(guiTerrain), humainPlayer(new JoueurHuman()), IaPlayer(new JoueurIA()), timer(new wxTimer(this))
 {
 	Controleur::marque = false;
-	this->humainPlayer->addObserver(this->guiTerrain->getBandeau()->getGUIScoreIA());
-	this->IaPlayer->addObserver(this->guiTerrain->getBandeau()->getGUIScoreHuman());
+	this->humainPlayer->addObserver(this->guiTerrain->getBandeau()->getGUIScoreHuman());
+	this->IaPlayer->addObserver(this->guiTerrain->getBandeau()->getGUIScoreIA());
 }
 
 Controleur::~Controleur()
@@ -50,7 +50,10 @@ void Controleur::compute(wxTimerEvent& event)
 	Controleur::marque = false;
 
 	if (humainPlayer->getScore() == 7 || IaPlayer->getScore() == 7)
+	{
 		this->stop();
+		wxMessageBox(humainPlayer->getScore() == 7 ? "Féliciation" : "Doooomaaaaage", "Résultat");
+	}
 
 	if (palet != NULL)
 	{
@@ -73,13 +76,13 @@ void Controleur::compute(wxTimerEvent& event)
 				Joueur *j = NULL;
 				if (dy == -1)
 				{
-					but = terrain->getButNord();
-					j = humainPlayer;
+					but = terrain->getButSud();
+					j = IaPlayer;
 				}
 				else
 				{
-					but = terrain->getButSud();
-					j = IaPlayer;
+					but = terrain->getButNord();
+					j = humainPlayer;
 				}
 
 				//dans ce cas la detection sur les y est deja faite car on detecte les buts uniquement si 

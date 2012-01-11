@@ -79,7 +79,7 @@
       <Filter>Fichiers d%27en-tête\Modele</Filter>
     </ClInclude>
     <ClInclude Include="MaFenetre.h">
-      <Filter>Fichiers sources\Controleur</Filter>
+      <Filter>Fichiers d%27en-tête\Vue</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
