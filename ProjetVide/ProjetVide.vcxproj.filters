@@ -13,90 +13,117 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Modele">
+      <UniqueIdentifier>{e7a3fd04-a329-4d5e-a3f3-57573446ac23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Controleur">
+      <UniqueIdentifier>{09b3dcd8-8520-458b-9b0d-413c51731093}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Modele">
+      <UniqueIdentifier>{1e562010-a7e5-4ab9-bf56-9d0d4ad4ca5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Controleur">
+      <UniqueIdentifier>{0eae421b-cae1-4aea-b223-2351faaba43b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Vue">
+      <UniqueIdentifier>{85e8c8b5-b425-4d4c-b953-dcd763d65c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Vue">
+      <UniqueIdentifier>{91b9c727-c414-4861-be7a-e9b1fb973a90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MonApp.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="MaFenetre.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Terrain.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Raquette.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Palet.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="ElementAAfficher.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="GUITerrain.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="GUIRaquette.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="GUIBut.h">
+      <Filter>Fichiers d%27en-tête\Vue</Filter>
     </ClInclude>
     <ClInclude Include="GUIPalet.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Vue</Filter>
     </ClInclude>
-    <ClInclude Include="GestionCollision.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="GUIRaquette.h">
+      <Filter>Fichiers d%27en-tête\Vue</Filter>
+    </ClInclude>
+    <ClInclude Include="GUITerrain.h">
+      <Filter>Fichiers d%27en-tête\Vue</Filter>
+    </ClInclude>
+    <ClInclude Include="Palet.h">
+      <Filter>Fichiers d%27en-tête\Modele</Filter>
+    </ClInclude>
+    <ClInclude Include="Raquette.h">
+      <Filter>Fichiers d%27en-tête\Modele</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Fichiers d%27en-tête\Modele</Filter>
     </ClInclude>
     <ClInclude Include="Element.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Modele</Filter>
     </ClInclude>
-    <ClInclude Include="Controleur.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="ElementAAfficher.h">
+      <Filter>Fichiers d%27en-tête\Vue</Filter>
     </ClInclude>
     <ClInclude Include="But.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Modele</Filter>
     </ClInclude>
-    <ClInclude Include="GUIBut.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Controleur.h">
+      <Filter>Fichiers d%27en-tête\Controleur</Filter>
+    </ClInclude>
+    <ClInclude Include="GestionCollision.h">
+      <Filter>Fichiers d%27en-tête\Controleur</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Fichiers d%27en-tête\Controleur</Filter>
+    </ClInclude>
+    <ClInclude Include="Joueur.h">
+      <Filter>Fichiers d%27en-tête\Modele</Filter>
+    </ClInclude>
+    <ClInclude Include="MaFenetre.h">
+      <Filter>Fichiers sources\Controleur</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MonApp.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="MaFenetre.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Terrain.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Raquette.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Palet.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="ElementAAfficher.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GUITerrain.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GUIRaquette.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GUIPalet.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GestionCollision.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="But.cpp">
+      <Filter>Fichiers sources\Modele</Filter>
     </ClCompile>
     <ClCompile Include="Controleur.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Controleur</Filter>
     </ClCompile>
-    <ClCompile Include="But.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="ElementAAfficher.cpp">
+      <Filter>Fichiers sources\Vue</Filter>
+    </ClCompile>
+    <ClCompile Include="GestionCollision.cpp">
+      <Filter>Fichiers sources\Controleur</Filter>
     </ClCompile>
     <ClCompile Include="GUIBut.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Vue</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIPalet.cpp">
+      <Filter>Fichiers sources\Vue</Filter>
+    </ClCompile>
+    <ClCompile Include="GUIRaquette.cpp">
+      <Filter>Fichiers sources\Vue</Filter>
+    </ClCompile>
+    <ClCompile Include="GUITerrain.cpp">
+      <Filter>Fichiers sources\Vue</Filter>
+    </ClCompile>
+    <ClCompile Include="MaFenetre.cpp">
+      <Filter>Fichiers sources\Vue</Filter>
+    </ClCompile>
+    <ClCompile Include="Palet.cpp">
+      <Filter>Fichiers sources\Modele</Filter>
+    </ClCompile>
+    <ClCompile Include="Raquette.cpp">
+      <Filter>Fichiers sources\Modele</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Fichiers sources\Modele</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Fichiers sources\Controleur</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -10,18 +10,26 @@
 #include <wx/msgdlg.h>
 #include <wx/dcclient.h>
 #include <wx/stattext.h>
+#include <algorithm>
 
 #include "ElementAAfficher.h"
 #include "Terrain.h"
 #include "GUIPalet.h"
 #include "GUIRaquette.h"
 #include "GUIBut.h"
+#include "Observer.h"
+
+class GUIText;
+class GUIScoreHuman;
+class GUIScoreIA;
+class GUITerrain;
+class GUIBandeau;
 
 /*!
  * \brief la vue terrain
  * Représente la vue du terrain et de ce qui dépend d'elle
  */
-class GUITerrain : public wxPanel, ElementAAfficher
+class GUITerrain : public wxPanel, public ElementAAfficher
 {
 private:
 	Terrain *terrain;/*!< Le modele terrain*/
@@ -29,7 +37,10 @@ private:
 	GUIRaquette *guiHuman, *guiIA; /*!< La vue raquette */
 	GUIPalet *guiPalet; /*!< La vue du palet */
 	GUIBut *guiButNord, *guiButSud; /*!< La vue des buts */
-	wxStaticText *label; /*!< La vue du score */
+	//wxStaticText *label; /*!< La vue du score */
+	//unsigned int scoreIA, scoreHuman; /*!< Le modele du label pour le score */
+	//wxString cntLabel; /*!< Le modele du label */
+	GUIBandeau *bandeau;
 
 public:
 	/*!
@@ -62,17 +73,93 @@ public:
 	 */
 	void onSourisMove(wxMouseEvent& event);
 
-	/*!
-	 * \brief Getteur du label score
-	 * Getteur du label score
-	 * \return wxStaticText
-	 */
-	wxStaticText* getLabelScore()const
-	{
-		return label;
-	}
-	
+	GUIBandeau* getBandeau()const;
+
 	DECLARE_EVENT_TABLE();
 };
+
+
+class GUIText : public Observer
+{
+protected:
+	wxStaticText *label;
+	wxString cntStatic;
+
+public:
+	GUIText(GUITerrain *parent, const wxString &cnt) : Observer(), cntStatic(cnt)
+	{
+		label = new wxStaticText(parent, wxID_ANY, cnt);
+	}
+
+	void concat(const wxString &str)
+	{
+		wxString tmp = cntStatic;
+		tmp.append(str);
+		label->SetLabel(tmp);
+	}
+
+	void update(Observable *o, Data data)
+	{
+		this->concat(wxString::Format("%d", data.score));
+	}
+
+	int getHeight()const
+	{
+		return this->label->GetSize().GetHeight();
+	}
+};
+
+class GUIScoreHuman : public GUIText
+{
+public:
+	GUIScoreHuman(GUITerrain *parent) : GUIText(parent, "Human ")
+	{
+		label->SetPosition(wxPoint(100, 0));
+		this->concat(wxString::Format("%d", 0));
+	}
+};
+
+class GUIScoreIA : public GUIText
+{
+public:
+	GUIScoreIA(GUITerrain *parent) : GUIText(parent, "IA ")
+	{
+		label->SetPosition(wxPoint(200, 0));
+		this->concat(wxString::Format("%d", 0));
+	}
+};
+
+class GUIBandeau
+{
+private:
+	GUIText *text;
+	GUIScoreHuman *sHuman;
+	GUIScoreIA *sIA;
+
+public:
+	GUIBandeau(GUITerrain *parent)
+	{
+		text = new GUIText(parent, "Score : ");
+		sHuman = new GUIScoreHuman(parent);
+		sIA = new GUIScoreIA(parent);
+	}
+	
+	int getHeight()const
+	{
+		return std::max(sIA->getHeight(), std::max(text->getHeight(), sHuman->getHeight()));
+	}
+
+	GUIScoreHuman* getGUIScoreHuman()
+	{
+		return this->sHuman;
+	}
+	
+	GUIScoreIA* getGUIScoreIA()
+	{
+		return this->sIA;
+	}
+};
+
+
 
 #endif
