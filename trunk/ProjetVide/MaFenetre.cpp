@@ -13,7 +13,7 @@ MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height)
 	this->guiTerrain = new GUITerrain(this, terrain);
 	
 	this->controleur = new Controleur(terrain, guiTerrain);
-	this->controleur->start(1);
+	this->controleur->start();
 	
 	this->creerMenu();
 }
@@ -39,7 +39,8 @@ void MaFenetre::creerMenu()
 void MaFenetre::onNouveauJeu(wxCommandEvent& event)
 {
 	this->controleur->stop();
-	this->controleur->start(1);
+	this->controleur->reset();
+	this->controleur->start();
 }
 
 void MaFenetre::onQuit(wxCommandEvent& event)

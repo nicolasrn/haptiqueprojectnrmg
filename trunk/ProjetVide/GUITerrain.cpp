@@ -4,11 +4,13 @@ BEGIN_EVENT_TABLE(GUITerrain, wxPanel)
 	EVT_MOTION(GUITerrain::onSourisMove) 
 END_EVENT_TABLE();
 
-GUITerrain::GUITerrain(wxWindow* parent, Terrain *terrain, wxWindowID id) : wxPanel(parent, id), terrain(terrain)
+GUITerrain::GUITerrain(wxWindow* parent, Terrain *terrain, wxWindowID id) : wxPanel(parent, id), ElementAAfficher(), terrain(terrain)
 {
-	label = new wxStaticText(this, -1, "Score : ");
-	parent->SetSize(terrain->getWidth(), terrain->getHeight() + label->GetSize().GetHeight());
-	terrain->setYStart(label->GetSize().GetHeight() + 3);
+	//cntLabel = wxString::Format("Score : Human %d - IA %d", scoreHuman, scoreIA);
+	//label = new wxStaticText(this, -1, cntLabel);
+	bandeau = new GUIBandeau(this);
+	parent->SetSize(terrain->getWidth(), terrain->getHeight() + bandeau->getHeight());
+	terrain->setYStart(bandeau->getHeight() + 3);
 
 	guiHuman = new GUIRaquette(terrain->getHuman());
 	guiIA = new GUIRaquette(terrain->getIa());
@@ -51,4 +53,9 @@ void GUITerrain::onSourisMove(wxMouseEvent& event)
 	//modification du modèle
 	terrain->getHuman()->setX(event.GetX());
 	terrain->getHuman()->setY(event.GetY());
+}
+
+GUIBandeau* GUITerrain::getBandeau()const
+{
+	return this->bandeau;
 }

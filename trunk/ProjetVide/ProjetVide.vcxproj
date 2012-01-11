@@ -87,8 +87,10 @@
     <ClInclude Include="GUIPalet.h" />
     <ClInclude Include="GUIRaquette.h" />
     <ClInclude Include="GUITerrain.h" />
+    <ClInclude Include="Joueur.h" />
     <ClInclude Include="MaFenetre.h" />
     <ClInclude Include="MonApp.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="Palet.h" />
     <ClInclude Include="Raquette.h" />
     <ClInclude Include="Terrain.h" />
@@ -104,6 +106,7 @@
     <ClCompile Include="GUITerrain.cpp" />
     <ClCompile Include="MaFenetre.cpp" />
     <ClCompile Include="MonApp.cpp" />
+    <ClCompile Include="Observer.cpp" />
     <ClCompile Include="Palet.cpp" />
     <ClCompile Include="Raquette.cpp" />
     <ClCompile Include="Terrain.cpp" />

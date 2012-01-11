@@ -1,6 +1,6 @@
 /*!
  * \file Controleur.h
- * Fichier contenant le Controleur de l'application et le joueur
+ * Fichier contenant le Controleur de l'application
  */
 
 #pragma once
@@ -19,36 +19,7 @@
 #include "Terrain.h"
 #include "GUITerrain.h"
 #include "GestionCollision.h"
-
-/*!
- * \brief Classe designant un joueur
- * Classe designant un joueur
- */
-class Joueur
-{
-private:
-	unsigned int score; /*!< Represente le score du joueur */
-
-public:
-	/*!
-	 * \brief Constructeur
-	 * Constructeur
-	 */
-	Joueur() : score(0)
-	{
-	}
-	
-	/*!
-	 * \brief Incrementation du score
-	 * Incrementation du score par defaut de 1
-	 * \param v : la valeur a ajouter par defaut 1
-	 */
-	void incrementScore(const unsigned int &v = 1)
-	{
-		score += v;
-	}
-};
-
+#include "Joueur.h"
 
 /*!
  * \brief Controleur de l'application
@@ -62,7 +33,9 @@ private:
 
 	wxTimer *timer; /*!< Va servir de base au controleur */
 
-	Joueur *humainPlayer, *IaPlayer;
+	Joueur *humainPlayer, *IaPlayer;/*!< Le modele joueur */
+
+	static bool marque;/*!< Sert de verification */
 
 public:
 	/*!
@@ -82,13 +55,19 @@ public:
 	 * Permet de lancer le timer
 	 * \param int : le temps
 	 */
-	void start(int ms);
+	void start(int ms = 0);
 	
 	/*!
 	 * \brief Permet de stopper le timer
 	 * Permet de stopper le timer
 	 */
 	void stop();
+
+	/*!
+	 * \brief Remet a zero
+	 * Remet a zero
+	 */
+	void reset();
 
 	/*!
 	 * \brief Permet de repeter les actions du controleur toutes les n secondes
