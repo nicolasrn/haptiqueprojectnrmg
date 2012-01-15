@@ -29,7 +29,7 @@ public:
 	 * \brief Destructeur
 	 * Destructeur 
 	 */
-	~Raquette(void);
+	virtual ~Raquette(void);
 	
 };
 

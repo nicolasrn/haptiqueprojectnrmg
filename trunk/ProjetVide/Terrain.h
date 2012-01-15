@@ -42,7 +42,7 @@ public:
 	 * \brief Destructeur
 	 * Destructeur 
 	 */
-	~Terrain();
+	virtual ~Terrain();
 
 	/*!
 	 * \brief Getteur

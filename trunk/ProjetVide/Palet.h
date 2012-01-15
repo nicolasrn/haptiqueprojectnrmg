@@ -31,7 +31,7 @@ public:
 	 * \brief Destructeur
 	 * Destructeur 
 	 */
-	~Palet(void);
+	virtual ~Palet(void);
 
 	/*!
 	 * \brief Defini le vecteur de deplacement du pale

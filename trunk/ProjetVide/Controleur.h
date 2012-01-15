@@ -49,7 +49,7 @@ public:
 	 * \brief Destructeur
 	 * Destructeur
 	 */
-	~Controleur();
+	virtual ~Controleur();
 
 	/*!
 	 * \brief Permet de lancer le timer

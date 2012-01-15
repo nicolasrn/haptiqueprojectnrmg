@@ -34,7 +34,11 @@ void Controleur::reset()
 {
 	humainPlayer->setScore(0);
 	IaPlayer->setScore(0);
-	
+
+	terrain->getPalet()->setX(terrain->getWidth()/2);
+	terrain->getPalet()->setY(terrain->getHeight()/2);
+	terrain->getPalet()->setVecteurDeplacement(0, 0);
+
 	guiTerrain->getBandeau()->getGUIScoreHuman()->concat(wxString::Format("%d", 0));
 	guiTerrain->getBandeau()->getGUIScoreIA()->concat(wxString::Format("%d", 0));
 }

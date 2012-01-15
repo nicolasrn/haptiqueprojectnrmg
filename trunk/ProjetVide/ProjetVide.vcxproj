@@ -80,6 +80,7 @@
   <ItemGroup>
     <ClInclude Include="But.h" />
     <ClInclude Include="Controleur.h" />
+    <ClInclude Include="ControleurHaptique.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="ElementAAfficher.h" />
     <ClInclude Include="GestionCollision.h" />
@@ -98,6 +99,7 @@
   <ItemGroup>
     <ClCompile Include="But.cpp" />
     <ClCompile Include="Controleur.cpp" />
+    <ClCompile Include="ControleurHaptique.cpp" />
     <ClCompile Include="ElementAAfficher.cpp" />
     <ClCompile Include="GestionCollision.cpp" />
     <ClCompile Include="GUIBut.cpp" />
