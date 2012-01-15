@@ -17,42 +17,6 @@ MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height)
 	this->controleur->start();
 	
 	this->creerMenu();
-
-	mCentreEnclosRelatif = wxPoint(guiTerrain->GetSize().GetWidth()/2, guiTerrain->GetSize().GetHeight()/2);
-	mSouris = new CImmMouse;
-	if (!mSouris->Initialize(wxGetInstance(), this->GetHandle()))
-	{
-		wxMessageBox("erreur souris");
-		delete mSouris;
-		mSouris = NULL;
-		this->Close();
-	}
-
-	mEnclos = NULL;
-	mEnclos = new CImmEnclosure();
-	wxPoint temp(mCentreEnclosRelatif);
-	ClientToScreen(&temp.x, &temp.y);
-	POINT centreEnclos;
-	centreEnclos.x = temp.x;
-	centreEnclos.y = temp.y;
-	if (!mEnclos->Initialize(mSouris,
-		this->guiTerrain->GetSize().GetWidth(), this->guiTerrain->GetSize().GetHeight(), // dimensions
-			-10000, -10000, //dureté des murs
-			10, 10, //épaisseur des murs
-			10000, 10000, //saturation des murs/force max
-			IMM_STIFF_ANYWALL,//masque d’application du retour
-			0x0, //masque de clipping
-			centreEnclos, //centre
-			NULL, //effet dans l’enclos
-			0, //angle de rotation de l’enclos, exprimé en centigrade
-			//45° ⇒ 4500 !!!
-			IMM_PARAM_NODOWNLOAD))
-	{
-		delete mEnclos;
-		mEnclos = NULL;
-	}
-	
-	mEnclos->Start();
 }
 
 MaFenetre::~MaFenetre()
@@ -87,6 +51,47 @@ void MaFenetre::creerMenu()
 void MaFenetre::onNouveauJeu(wxCommandEvent &WXUNUSED(event))
 {
 	this->controleur->stop();
+
+	mCentreEnclosRelatif = wxPoint(guiTerrain->GetSize().GetWidth()/2, guiTerrain->GetSize().GetHeight()/2);
+	
+	if (mSouris == NULL)
+	{
+		mSouris = new CImmMouse;
+		if (!mSouris->Initialize(wxGetInstance(), this->GetHandle()))
+		{
+			wxMessageBox("erreur souris");
+			delete mSouris;
+			mSouris = NULL;
+			this->Close();
+		}
+	}
+	if (mEnclos == NULL)
+	{
+		mEnclos = new CImmEnclosure();
+		wxPoint temp(mCentreEnclosRelatif);
+		ClientToScreen(&temp.x, &temp.y);
+		POINT centreEnclos;
+		centreEnclos.x = temp.x;
+		centreEnclos.y = temp.y;
+		if (!mEnclos->Initialize(mSouris,
+			this->guiTerrain->GetSize().GetWidth(), this->guiTerrain->GetSize().GetHeight(), // dimensions
+				-10000, -10000, //dureté des murs
+				10, 10, //épaisseur des murs
+				10000, 10000, //saturation des murs/force max
+				IMM_STIFF_ANYWALL,//masque d’application du retour
+				0x0, //masque de clipping
+				centreEnclos, //centre
+				NULL, //effet dans l’enclos
+				0, //angle de rotation de l’enclos, exprimé en centigrade
+				//45° ⇒ 4500 !!!
+				IMM_PARAM_NODOWNLOAD))
+		{
+			delete mEnclos;
+			mEnclos = NULL;
+		}
+		
+		mEnclos->Start();
+	}
 	this->controleur->reset();
 	this->controleur->start();
 }

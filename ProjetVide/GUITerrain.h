@@ -37,9 +37,6 @@ private:
 	GUIRaquette *guiHuman, *guiIA; /*!< La vue raquette */
 	GUIPalet *guiPalet; /*!< La vue du palet */
 	GUIBut *guiButNord, *guiButSud; /*!< La vue des buts */
-	//wxStaticText *label; /*!< La vue du score */
-	//unsigned int scoreIA, scoreHuman; /*!< Le modele du label pour le score */
-	//wxString cntLabel; /*!< Le modele du label */
 	GUIBandeau *bandeau;
 
 public:
@@ -57,7 +54,7 @@ public:
 	 * \brief Destructeur
 	 * Détruit les vues
 	 */
-	~GUITerrain();
+	virtual ~GUITerrain();
 
 	/*!
 	 * \brief Surcharge pour dessiner
@@ -72,12 +69,16 @@ public:
 	 * \param event : l'évenement
 	 */
 	void onSourisMove(wxMouseEvent& event);
-
+	
+	/*!
+	 * \brief Getteur Bandeau
+	 * Getteur Bandeau
+	 * \return GUIBandeau
+	 */
 	GUIBandeau* getBandeau()const;
 
 	DECLARE_EVENT_TABLE();
 };
-
 
 class GUIText : public Observer
 {
@@ -98,7 +99,7 @@ public:
 		label->SetLabel(tmp);
 	}
 
-	void update(Observable *o, Data data)
+	void update(Observable *WXUNUSED(o), Data data)
 	{
 		this->concat(wxString::Format("%d", data.score));
 	}

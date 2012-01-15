@@ -30,7 +30,7 @@ public:
 	 * \brief Destructeur
 	 * Destructeur
 	 */
-	~But();
+	virtual ~But();
 };
 
 #endif

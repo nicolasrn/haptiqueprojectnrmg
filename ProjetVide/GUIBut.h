@@ -32,7 +32,7 @@ public:
 	 * \brief Destructeur
 	 * Destructeur
 	 */
-	~GUIBut();
+	virtual ~GUIBut();
 	
 	/*!
 	 * \brief Permet pour dessiner

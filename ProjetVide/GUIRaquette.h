@@ -32,7 +32,7 @@ public:
 	 * \brief Destructeur
 	 * Destructeur 
 	 */
-	~GUIRaquette();
+	virtual ~GUIRaquette();
 	
 	/*!
 	 * \brief Surcharge pour dessiner

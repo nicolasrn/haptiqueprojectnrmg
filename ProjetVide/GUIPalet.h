@@ -32,7 +32,7 @@ public:
 	 * \brief Destructeur
 	 * Destructeur 
 	 */
-	~GUIPalet();
+	virtual ~GUIPalet();
 	
 	/*!
 	 * \brief Surcharge pour dessiner
