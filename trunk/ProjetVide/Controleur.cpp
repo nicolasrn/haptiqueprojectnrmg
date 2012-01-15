@@ -39,72 +39,79 @@ void Controleur::reset()
 	guiTerrain->getBandeau()->getGUIScoreIA()->concat(wxString::Format("%d", 0));
 }
 
-void Controleur::compute(wxTimerEvent& event)
+void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 {
-	//*
-	//controle
-	Element *collisione = NULL;
-	Palet *palet = terrain->getPalet();
-	int vx = 0, vy = 0;
-	int dx = 0, dy = 0;
-	Controleur::marque = false;
-
-	if (humainPlayer->getScore() == 7 || IaPlayer->getScore() == 7)
+	try
 	{
-		this->stop();
-		wxMessageBox(humainPlayer->getScore() == 7 ? "Féliciation" : "Doooomaaaaage", "Résultat");
-	}
+		//*
+		//controle
+		Element *collisione = NULL;
+		Palet *palet = terrain->getPalet();
+		int vx = 0, vy = 0;
+		int dx = 0, dy = 0;
+		Controleur::marque = false;
 
-	if (palet != NULL)
-	{
-		if (GestionCollision::isCircleCollisionBetween(palet, terrain->getList(), &collisione))
+		if (humainPlayer->getScore() == 7 || IaPlayer->getScore() == 7)
 		{
-			//définition du vecteur de déplacement du palet
-		
-			vy = (collisione->getY() < palet->getY()) ? 1 : -1;
-			vx = (collisione->getX() < palet->getX()) ? 1 : -1;
-		
-			palet->setVecteurDeplacement(vx, vy);
+			this->stop();
+			wxMessageBox(humainPlayer->getScore() == 7 ? "Féliciation" : "Doooomaaaaage", "Résultat");
 		}
 
-		if (GestionCollision::isCircleGroundCollisionBetween(palet, terrain, &dx, &dy))
+		if (palet != NULL)
 		{
-			// donc dans le cas ou le palet touche le mur nord ou sud on vérifie si il y a but
-			if (dy == 1 || dy == -1)
+			if (GestionCollision::isCircleCollisionBetween(palet, terrain->getList(), &collisione))
 			{
-				But *but = NULL;
-				Joueur *j = NULL;
-				if (dy == -1)
-				{
-					but = terrain->getButSud();
-					j = IaPlayer;
-				}
-				else
-				{
-					but = terrain->getButNord();
-					j = humainPlayer;
-				}
-
-				//dans ce cas la detection sur les y est deja faite car on detecte les buts uniquement si 
-				//l'etremite nord ou sud du terrain est touche
-				if (but->getX() < palet->getX() && palet->getX() < but->getX() + but->getWidth() && Controleur::marque == false) //détection sur les x	
-				{
-					Controleur::marque = true;
-					j->incrementScore();
-					palet->setVecteurDeplacement(0, 0);
-					palet->setX(terrain->getWidth()/2);
-					palet->setY(terrain->getHeight()/2);
-					dx = dy = 0;
-				}
+				//définition du vecteur de déplacement du palet
+		
+				vy = (collisione->getY() < palet->getY()) ? 1 : -1;
+				vx = (collisione->getX() < palet->getX()) ? 1 : -1;
+		
+				palet->setVecteurDeplacement(vx, vy);
 			}
-			palet->setVecteurDeplacement(dx+palet->getVx(), dy+palet->getVy());
-		}
-		palet->compute();
+
+			if (GestionCollision::isCircleGroundCollisionBetween(palet, terrain, &dx, &dy))
+			{
+				// donc dans le cas ou le palet touche le mur nord ou sud on vérifie si il y a but
+				if (dy == 1 || dy == -1)
+				{
+					But *but = NULL;
+					Joueur *j = NULL;
+					if (dy == -1)
+					{
+						but = terrain->getButSud();
+						j = IaPlayer;
+					}
+					else
+					{
+						but = terrain->getButNord();
+						j = humainPlayer;
+					}
+
+					//dans ce cas la detection sur les y est deja faite car on detecte les buts uniquement si 
+					//l'etremite nord ou sud du terrain est touche
+					if (but->getX() < palet->getX() && palet->getX() < but->getX() + but->getWidth() && Controleur::marque == false) //détection sur les x	
+					{
+						Controleur::marque = true;
+						j->incrementScore();
+						palet->setVecteurDeplacement(0, 0);
+						palet->setX(terrain->getWidth()/2);
+						palet->setY(terrain->getHeight()/2);
+						dx = dy = 0;
+					}
+				}
+				palet->setVecteurDeplacement(dx+palet->getVx(), dy+palet->getVy());
+			}
+			palet->compute();
 	
-		//mise à jour de la vue
-		wxClientDC dc(guiTerrain);
-		dc.Clear();
-		guiTerrain->dessiner(&dc);
-		//*/
+			//mise à jour de la vue
+			wxClientDC dc(guiTerrain);
+			dc.Clear();
+			guiTerrain->dessiner(&dc);
+			//*/
+		}
+	}
+	catch(...)
+	{
+		wxMessageBox("erreur catcher");
 	}
 }

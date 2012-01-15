@@ -9,6 +9,7 @@
 #define __CONTROLLEUR__
 
 #include <iostream>
+#include <exception>
 #include <wx/object.h>
 #include <wx/dcclient.h>
 #include <wx/timer.h>
@@ -74,7 +75,7 @@ public:
 	 * Permet de repeter les actions du controleur toutes les n secondes
 	 * \param event : l'evenement
 	 */
-	void compute(wxTimerEvent& event);
+	void compute(wxTimerEvent& WXUNUSED(event));
 
 	DECLARE_EVENT_TABLE();
 };

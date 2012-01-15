@@ -49,6 +49,8 @@
 		Controleur *controleur;/*!< Le controleur */
 		
 		CImmMouse *mSouris;
+		CImmEnclosure* mEnclos;
+		wxPoint mCentreEnclosRelatif;
 
 		/*!
 		 * \brief permet la création du menu
@@ -79,14 +81,21 @@
 		 * Action permettant de lancer un nouveau jeu
 		 * \param event : l'evenement
 		 */
-		void onNouveauJeu(wxCommandEvent& event);
+		void onNouveauJeu(wxCommandEvent& WXUNUSED(event));
 		
 		/*!
 		 * \brief Permet de quitter
-		 *Permet de quitter l'application
+		 * Permet de quitter l'application
 		 * \param event : l'evenement
 		 */
-		void onQuit(wxCommandEvent& event);
+		void onQuit(wxCommandEvent &WXUNUSED(event));
+		
+		/*!
+		 * \brief Action au redimensionnement
+		 * Action au redimensionnement
+		 * \param event : l'evenement
+		 */
+		void onWindowMove(wxMoveEvent &WXUNUSED(event));
 		
 		DECLARE_EVENT_TABLE();
 	};
