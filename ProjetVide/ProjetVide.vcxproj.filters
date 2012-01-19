@@ -31,6 +31,12 @@
     <Filter Include="Fichiers d%27en-tête\Vue">
       <UniqueIdentifier>{91b9c727-c414-4861-be7a-e9b1fb973a90}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Vue\VueHaptique">
+      <UniqueIdentifier>{cee1ec02-0120-46cb-bb06-550158f64bd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Vue\VueHaptique">
+      <UniqueIdentifier>{a744040f-fe07-432c-92ce-58d31828b43e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MonApp.h">
@@ -84,6 +90,12 @@
     <ClInclude Include="ControleurHaptique.h">
       <Filter>Fichiers d%27en-tête\Controleur</Filter>
     </ClInclude>
+    <ClInclude Include="GUITerrainHaptique.h">
+      <Filter>Fichiers d%27en-tête\Vue\VueHaptique</Filter>
+    </ClInclude>
+    <ClInclude Include="GestionnaireSouris.h">
+      <Filter>Fichiers d%27en-tête\Vue\VueHaptique</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MonApp.cpp">
@@ -130,6 +142,12 @@
     </ClCompile>
     <ClCompile Include="ControleurHaptique.cpp">
       <Filter>Fichiers sources\Controleur</Filter>
+    </ClCompile>
+    <ClCompile Include="GUITerrainHaptique.cpp">
+      <Filter>Fichiers sources\Vue\VueHaptique</Filter>
+    </ClCompile>
+    <ClCompile Include="GestionnaireSouris.cpp">
+      <Filter>Fichiers sources\Vue\VueHaptique</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
