@@ -84,10 +84,12 @@
     <ClInclude Include="Element.h" />
     <ClInclude Include="ElementAAfficher.h" />
     <ClInclude Include="GestionCollision.h" />
+    <ClInclude Include="GestionnaireSouris.h" />
     <ClInclude Include="GUIBut.h" />
     <ClInclude Include="GUIPalet.h" />
     <ClInclude Include="GUIRaquette.h" />
     <ClInclude Include="GUITerrain.h" />
+    <ClInclude Include="GUITerrainHaptique.h" />
     <ClInclude Include="Joueur.h" />
     <ClInclude Include="MaFenetre.h" />
     <ClInclude Include="MonApp.h" />
@@ -102,10 +104,12 @@
     <ClCompile Include="ControleurHaptique.cpp" />
     <ClCompile Include="ElementAAfficher.cpp" />
     <ClCompile Include="GestionCollision.cpp" />
+    <ClCompile Include="GestionnaireSouris.cpp" />
     <ClCompile Include="GUIBut.cpp" />
     <ClCompile Include="GUIPalet.cpp" />
     <ClCompile Include="GUIRaquette.cpp" />
     <ClCompile Include="GUITerrain.cpp" />
+    <ClCompile Include="GUITerrainHaptique.cpp" />
     <ClCompile Include="MaFenetre.cpp" />
     <ClCompile Include="MonApp.cpp" />
     <ClCompile Include="Observer.cpp" />

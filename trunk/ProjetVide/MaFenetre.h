@@ -14,13 +14,13 @@
 		#include <wx/wx.h>
 	#endif
 
-	#include <IFC.h>
-	
 	#include <wx/msgdlg.h>
 	#include "Terrain.h"
 	#include "GUITerrain.h"
+	#include "GUITerrainHaptique.h"
 	#include "GestionCollision.h"
 	#include "Controleur.h"
+	#include "GestionnaireSouris.h"
 
 	/*!
 	 * \enum 
@@ -48,10 +48,6 @@
 
 		Controleur *controleur;/*!< Le controleur */
 		
-		CImmMouse *mSouris;
-		CImmEnclosure* mEnclos;
-		wxPoint mCentreEnclosRelatif;
-
 		/*!
 		 * \brief permet la création du menu
 		 * permet la création du menu
