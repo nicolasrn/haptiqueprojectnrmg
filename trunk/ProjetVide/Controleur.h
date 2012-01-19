@@ -20,7 +20,9 @@
 #include "Terrain.h"
 #include "GUITerrain.h"
 #include "GestionCollision.h"
+#include "GestionnaireSouris.h"
 #include "Joueur.h"
+#include "PaletHaptique.h"
 
 /*!
  * \brief Controleur de l'application
@@ -39,6 +41,8 @@ private:
 	static bool marque;/*!< Sert de verification */
 
 public:
+	PaletHaptique *paletHaptique;
+
 	/*!
 	 * \brief Constructeur
 	 * Constructeur du controleur

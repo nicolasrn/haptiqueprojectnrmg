@@ -1,14 +1,17 @@
 #include "GestionnaireSouris.h"
 
 GestionnaireSouris *GestionnaireSouris::gestionnaire = NULL;
+bool GestionnaireSouris::ActivationGestionnaire = false;
 
 GestionnaireSouris::GestionnaireSouris(HINSTANCE h, WXWidget w)
 {
 	mSouris = new CImmMouse;
+	ActivationGestionnaire = true;
 	if (!mSouris->Initialize(h, w))
 	{
 		delete mSouris;
 		mSouris = NULL;
+		ActivationGestionnaire = false;
 		throw std::exception("echec de l'initialisation de la souris");
 	}
 }
@@ -29,7 +32,10 @@ GestionnaireSouris* GestionnaireSouris::getInstance(HINSTANCE h, WXWidget w)
 
 GestionnaireSouris* GestionnaireSouris::getInstance()
 {
-	return gestionnaire;
+	if (ActivationGestionnaire)
+		return gestionnaire;
+	else 
+		return NULL;
 }
 
 CImmMouse* GestionnaireSouris::getSouris()

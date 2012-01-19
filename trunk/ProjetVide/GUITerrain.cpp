@@ -11,30 +11,37 @@ GUITerrain::GUITerrain(wxWindow* parent, Terrain *terrain, wxWindowID id) : wxPa
 	bandeau = new GUIBandeau(this);
 	parent->SetSize(terrain->getWidth(), terrain->getHeight() + bandeau->getHeight());
 	terrain->setYStart(bandeau->getHeight() + 3);
-
+	
+	terrain->getButNord()->setY(terrain->getYStart() + 1);
+	
 	guiHuman = new GUIRaquette(terrain->getHuman());
 	guiIA = new GUIRaquette(terrain->getIa());
 	guiPalet = new GUIPalet(terrain->getPalet());
 	
-	terrain->getButNord()->setY(terrain->getYStart() + 1);
-
 	guiButNord = new GUIBut(terrain->getButNord());
 	guiButSud = new GUIBut(terrain->getButSud());
 }
 
 GUITerrain::~GUITerrain()
 {
+	delete bandeau;
 	delete guiHuman;
 	delete guiIA;
 	delete guiPalet;
 	delete guiButNord;
 	delete guiButSud;
 
+	bandeau = NULL;
 	guiPalet = NULL;
 	guiIA = NULL;
 	guiHuman = NULL;
 	guiButNord = NULL;
 	guiButSud = NULL;
+}
+
+GUIPalet* GUITerrain::getGuiPalet()
+{
+	return guiPalet;
 }
 
 void GUITerrain::dessiner(wxClientDC *dc)

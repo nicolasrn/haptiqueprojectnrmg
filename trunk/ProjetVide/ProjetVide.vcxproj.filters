@@ -31,11 +31,11 @@
     <Filter Include="Fichiers d%27en-tête\Vue">
       <UniqueIdentifier>{91b9c727-c414-4861-be7a-e9b1fb973a90}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\Vue\VueHaptique">
-      <UniqueIdentifier>{cee1ec02-0120-46cb-bb06-550158f64bd7}</UniqueIdentifier>
+    <Filter Include="Fichiers sources\Modele\Haptique">
+      <UniqueIdentifier>{a870ee16-8145-4e25-988b-fe76d416e89b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Vue\VueHaptique">
-      <UniqueIdentifier>{a744040f-fe07-432c-92ce-58d31828b43e}</UniqueIdentifier>
+    <Filter Include="Fichiers d%27en-tête\Modele\Haptique">
+      <UniqueIdentifier>{42ce17f7-0c09-4a6f-a32e-f7e084f207f7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -63,9 +63,6 @@
     <ClInclude Include="Terrain.h">
       <Filter>Fichiers d%27en-tête\Modele</Filter>
     </ClInclude>
-    <ClInclude Include="Element.h">
-      <Filter>Fichiers d%27en-tête\Modele</Filter>
-    </ClInclude>
     <ClInclude Include="ElementAAfficher.h">
       <Filter>Fichiers d%27en-tête\Vue</Filter>
     </ClInclude>
@@ -87,14 +84,23 @@
     <ClInclude Include="MaFenetre.h">
       <Filter>Fichiers d%27en-tête\Vue</Filter>
     </ClInclude>
+    <ClInclude Include="TerrainHaptique.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
+    <ClInclude Include="PaletHaptique.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
+    <ClInclude Include="GestionnaireSouris.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
     <ClInclude Include="ControleurHaptique.h">
       <Filter>Fichiers d%27en-tête\Controleur</Filter>
     </ClInclude>
-    <ClInclude Include="GUITerrainHaptique.h">
-      <Filter>Fichiers d%27en-tête\Vue\VueHaptique</Filter>
+    <ClInclude Include="ElementHaptique.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
     </ClInclude>
-    <ClInclude Include="GestionnaireSouris.h">
-      <Filter>Fichiers d%27en-tête\Vue\VueHaptique</Filter>
+    <ClInclude Include="Element.h">
+      <Filter>Fichiers d%27en-tête\Modele</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -140,14 +146,17 @@
     <ClCompile Include="Observer.cpp">
       <Filter>Fichiers sources\Controleur</Filter>
     </ClCompile>
-    <ClCompile Include="ControleurHaptique.cpp">
-      <Filter>Fichiers sources\Controleur</Filter>
+    <ClCompile Include="PaletHaptique.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
     </ClCompile>
-    <ClCompile Include="GUITerrainHaptique.cpp">
-      <Filter>Fichiers sources\Vue\VueHaptique</Filter>
+    <ClCompile Include="TerrainHaptique.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
     </ClCompile>
     <ClCompile Include="GestionnaireSouris.cpp">
-      <Filter>Fichiers sources\Vue\VueHaptique</Filter>
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
+    </ClCompile>
+    <ClCompile Include="ControleurHaptique.cpp">
+      <Filter>Fichiers sources\Controleur</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

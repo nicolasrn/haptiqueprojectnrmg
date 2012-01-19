@@ -17,10 +17,12 @@
 	#include <wx/msgdlg.h>
 	#include "Terrain.h"
 	#include "GUITerrain.h"
-	#include "GUITerrainHaptique.h"
 	#include "GestionCollision.h"
 	#include "Controleur.h"
 	#include "GestionnaireSouris.h"
+	#include "ControleurHaptique.h"
+	#include "TerrainHaptique.h"
+	#include "PaletHaptique.h"
 
 	/*!
 	 * \enum 
@@ -46,8 +48,11 @@
 
 		int width, height;/*!< Représente la taille et la hauteur de la vue*/
 
-		Controleur *controleur;/*!< Le controleur */
-		
+		Controleur *controleur;/*!< Le controleur jeu */
+		ControleurHaptique *controleurHaptique;/*!< Le controleur haptique */
+		TerrainHaptique *terrainHaptique;
+		PaletHaptique *paletHaptique;
+
 		/*!
 		 * \brief permet la création du menu
 		 * permet la création du menu
