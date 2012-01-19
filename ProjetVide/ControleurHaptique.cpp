@@ -1,11 +1,11 @@
 #include "ControleurHaptique.h"
 
 
-ControleurHaptique::ControleurHaptique(void)
+ControleurHaptique::ControleurHaptique()
 {
 }
 
 
-ControleurHaptique::~ControleurHaptique(void)
+ControleurHaptique::~ControleurHaptique()
 {
 }

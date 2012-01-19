@@ -11,11 +11,14 @@ class GestionnaireSouris
 {
 private:
 	static GestionnaireSouris *gestionnaire;
+
 	CImmMouse *mSouris;
 	
 	GestionnaireSouris(HINSTANCE h, WXWidget w);
 
 public:
+	static bool ActivationGestionnaire;
+
 	virtual ~GestionnaireSouris();
 	static GestionnaireSouris* getInstance(HINSTANCE h, WXWidget w);
 	static GestionnaireSouris* getInstance();

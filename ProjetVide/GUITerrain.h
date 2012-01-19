@@ -31,7 +31,7 @@ class GUIBandeau;
  */
 class GUITerrain : public wxPanel, public ElementAAfficher
 {
-private:
+protected:
 	Terrain *terrain;/*!< Le modele terrain*/
 
 	GUIRaquette *guiHuman, *guiIA; /*!< La vue raquette */
@@ -49,7 +49,7 @@ public:
 	 * \param id : l'id du composant
 	 */
 	GUITerrain(wxWindow* parent, Terrain *terrain, wxWindowID id = wxID_ANY);
-
+	
 	/*!
 	 * \brief Destructeur
 	 * Détruit les vues
@@ -76,6 +76,8 @@ public:
 	 * \return GUIBandeau
 	 */
 	GUIBandeau* getBandeau()const;
+
+	GUIPalet* getGuiPalet();
 
 	DECLARE_EVENT_TABLE();
 };
@@ -144,10 +146,21 @@ public:
 		sHuman = new GUIScoreHuman(parent);
 		sIA = new GUIScoreIA(parent);
 	}
+
+	virtual ~GUIBandeau()
+	{
+		delete text;
+		delete sHuman;
+		delete sIA;
+
+		text = NULL;
+		sHuman = NULL;
+		sIA = NULL;
+	}
 	
 	int getHeight()const
 	{
-		return std::max(sIA->getHeight(), std::max(text->getHeight(), sHuman->getHeight()));
+		return sIA->getHeight();//std::max(sIA->getHeight(), std::max(text->getHeight(), sHuman->getHeight()));
 	}
 
 	GUIScoreHuman* getGUIScoreHuman()

@@ -105,8 +105,10 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 				}
 				palet->setVecteurDeplacement(dx+palet->getVx(), dy+palet->getVy());
 			}
+			if (GestionnaireSouris::ActivationGestionnaire)
+				paletHaptique->setCentreRelatif(palet->getX(), palet->getY());
 			palet->compute();
-	
+			
 			//mise à jour de la vue
 			wxClientDC dc(guiTerrain);
 			dc.Clear();

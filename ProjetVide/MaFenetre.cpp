@@ -11,30 +11,27 @@ END_EVENT_TABLE();
 MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height) : wxFrame(NULL,wxID_ANY,title), width(width), height(height)//, mEnclos(NULL), mSouris(NULL)
 {
 	this->guiTerrain = NULL;
+	this->guiTerrain = NULL;
+	this->controleur = NULL;
+	this->controleurHaptique = NULL;
+	this->terrainHaptique = NULL;
+
 	this->terrain = new Terrain(width, height);
-
-	try
+	this->guiTerrain = new GUITerrain(this, terrain);
+	
+	GestionnaireSouris::getInstance(wxGetInstance(), this->GetHandle());
+	if (GestionnaireSouris::ActivationGestionnaire)
 	{
-		GestionnaireSouris::getInstance(wxGetInstance(), this->GetHandle());
-		this->guiTerrain = new GUITerrainHaptique(this, terrain);
-
-		wxMessageBox("Effet de la souris haptique activée");
-	}
-	catch(const std::exception &e)
-	{
-		wxMessageBox(e.what());
-
-		if (this->guiTerrain != NULL)
-		{
-			delete guiTerrain;
-			guiTerrain = NULL;
-		}
-		this->guiTerrain = new GUITerrain(this, terrain);
+		controleurHaptique = new ControleurHaptique();
+		terrainHaptique = new TerrainHaptique(guiTerrain, terrain);
+		paletHaptique = new PaletHaptique(guiTerrain, terrain);
 	}
 
 	this->controleur = new Controleur(terrain, guiTerrain);
+	this->controleur->paletHaptique = paletHaptique;
+
 	this->controleur->start();
-	
+
 	this->creerMenu();
 }
 
@@ -43,8 +40,14 @@ MaFenetre::~MaFenetre()
 	delete terrain;
 	delete guiTerrain;
 
+	delete terrainHaptique;
+	delete paletHaptique;
+
 	terrain = NULL;
 	guiTerrain = NULL;
+
+	terrainHaptique = NULL;
+	paletHaptique = NULL;
 }
 
 void MaFenetre::creerMenu()
@@ -52,11 +55,13 @@ void MaFenetre::creerMenu()
 	wxMenu *menuFichier = new wxMenu;
 	menuFichier->Append(APPNOUVEAUJEU, "Nouveau jeu");
     menuFichier->Append(APPQUIT, "Quitter");
-	menuFichier->Append(APPQUIT, "Niveau");
-	menuFichier->Append(APPQUIT, "Palet");
+	wxMenu *menuPerso = new wxMenu;		
+	menuPerso->Append(APPQUIT, "Niveau");
+	menuPerso->Append(APPQUIT, "Palet");
 
     wxMenuBar *menuBarre = new wxMenuBar();
-    menuBarre->Append(menuFichier,("&Fichier"));
+	menuBarre->Append(menuFichier, wxT("&Fichier"));
+	menuBarre->Append(menuPerso, wxT("&Personnalisation"));
 
     SetMenuBar(menuBarre);
 }
@@ -64,7 +69,6 @@ void MaFenetre::creerMenu()
 void MaFenetre::onNouveauJeu(wxCommandEvent &WXUNUSED(event))
 {
 	this->controleur->stop();
-
 	this->controleur->reset();
 	this->controleur->start();
 }
@@ -77,10 +81,9 @@ void MaFenetre::onQuit(wxCommandEvent &WXUNUSED(event))
 
 void MaFenetre::onWindowMove(wxMoveEvent &WXUNUSED(event))
 {
-	if (guiTerrain != NULL && GestionnaireSouris::getInstance()->getSouris() != NULL)
+	if (GestionnaireSouris::ActivationGestionnaire)
 	{
-		wxPoint centre(((GUITerrainHaptique*)guiTerrain)->getCentreEnclosRelatif());
-		ClientToScreen(&centre.x, &centre.y);
-		((GUITerrainHaptique*)guiTerrain)->getEnclos()->ChangeCenter(centre.x, centre.y);
+		terrainHaptique->recentrer();
+		paletHaptique->recentrer();
 	}
 }
