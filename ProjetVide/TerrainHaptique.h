@@ -15,16 +15,24 @@ class TerrainHaptique : public ElementHaptique
 private:
 	Terrain *terrain;
 
+	GUITerrain *fenetre;
+
+	CImmProject *mProjet;
+
 	wxPoint mCentreEnclosRelatif;
 	CImmEnclosure *mEnclos;
-
-	GUITerrain *fenetre;
+	CImmTexture *mTexture;
+	CImmCompoundEffect *mGran;
 public:
 	TerrainHaptique(GUITerrain *fenetre, Terrain *terrain);
 
 	virtual ~TerrainHaptique();
 
 	virtual void recentrer();
+
+	virtual void Start();
+
+	virtual void Stop();
 };
 
 #endif

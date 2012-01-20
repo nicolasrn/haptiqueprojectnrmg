@@ -16,6 +16,11 @@ public:
 	 */
 	virtual void recentrer() = 0;
 
+	virtual void Start() = 0;
+
+	virtual void Stop() = 0;
+
+	virtual void setCentreRelatif(const int &x, const int &y) {}
 };
 
 #endif

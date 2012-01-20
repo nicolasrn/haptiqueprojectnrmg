@@ -32,7 +32,9 @@
 	enum
 	{
 		APPQUIT = wxID_HIGHEST + 1,
-		APPNOUVEAUJEU
+		APPNOUVEAUJEU,
+		APPNIVEAU,
+		APPPERSONNALISATION
 	};
 	
 	/*!
@@ -50,8 +52,6 @@
 
 		Controleur *controleur;/*!< Le controleur jeu */
 		ControleurHaptique *controleurHaptique;/*!< Le controleur haptique */
-		TerrainHaptique *terrainHaptique;
-		PaletHaptique *paletHaptique;
 
 		/*!
 		 * \brief permet la création du menu

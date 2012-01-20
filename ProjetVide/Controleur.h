@@ -22,7 +22,7 @@
 #include "GestionCollision.h"
 #include "GestionnaireSouris.h"
 #include "Joueur.h"
-#include "PaletHaptique.h"
+#include "ControleurHaptique.h"
 
 /*!
  * \brief Controleur de l'application
@@ -40,9 +40,8 @@ private:
 
 	static bool marque;/*!< Sert de verification */
 
+	ControleurHaptique *controleurHaptique;
 public:
-	PaletHaptique *paletHaptique;
-
 	/*!
 	 * \brief Constructeur
 	 * Constructeur du controleur
@@ -74,6 +73,11 @@ public:
 	 */
 	void reset();
 
+	/*!
+	 * Reference vers le controleur haptique
+	 */
+	void setControleurHaptique(ControleurHaptique *ch);
+	
 	/*!
 	 * \brief Permet de repeter les actions du controleur toutes les n secondes
 	 * Permet de repeter les actions du controleur toutes les n secondes

@@ -28,7 +28,6 @@ PaletHaptique::PaletHaptique(GUITerrain *fenetre, Terrain *terrain) : ElementHap
 
 			throw std::exception("erreur initialisation enclos terrain");
 		}
-		this->mEnclos->Start();
 	}
 }
 
@@ -53,4 +52,14 @@ void PaletHaptique::setCentreRelatif(const int &x, const int &y)
 	wxPoint centre(mCentreEnclosRelatif);
 	fenetre->ClientToScreen(&centre.x, &centre.y);
 	mEnclos->ChangeCenter(centre.x, centre.y);
+}
+
+void PaletHaptique::Start()
+{
+	this->mEnclos->Start();
+}
+
+void PaletHaptique::Stop()
+{
+	this->mEnclos->Stop();
 }

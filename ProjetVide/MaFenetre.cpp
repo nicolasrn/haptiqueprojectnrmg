@@ -14,8 +14,7 @@ MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height)
 	this->guiTerrain = NULL;
 	this->controleur = NULL;
 	this->controleurHaptique = NULL;
-	this->terrainHaptique = NULL;
-
+	
 	this->terrain = new Terrain(width, height);
 	this->guiTerrain = new GUITerrain(this, terrain);
 	
@@ -23,12 +22,13 @@ MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height)
 	if (GestionnaireSouris::ActivationGestionnaire)
 	{
 		controleurHaptique = new ControleurHaptique();
-		terrainHaptique = new TerrainHaptique(guiTerrain, terrain);
-		paletHaptique = new PaletHaptique(guiTerrain, terrain);
+		controleurHaptique->add(new TerrainHaptique(guiTerrain, terrain));
+		controleurHaptique->add(new PaletHaptique(guiTerrain, terrain));
 	}
 
+	this->controleurHaptique->Start();
 	this->controleur = new Controleur(terrain, guiTerrain);
-	this->controleur->paletHaptique = paletHaptique;
+	this->controleur->setControleurHaptique(controleurHaptique);
 
 	this->controleur->start();
 
@@ -39,15 +39,11 @@ MaFenetre::~MaFenetre()
 {
 	delete terrain;
 	delete guiTerrain;
+	delete controleurHaptique;
 
-	delete terrainHaptique;
-	delete paletHaptique;
-
+	controleurHaptique = NULL;
 	terrain = NULL;
 	guiTerrain = NULL;
-
-	terrainHaptique = NULL;
-	paletHaptique = NULL;
 }
 
 void MaFenetre::creerMenu()
@@ -56,8 +52,8 @@ void MaFenetre::creerMenu()
 	menuFichier->Append(APPNOUVEAUJEU, "Nouveau jeu");
     menuFichier->Append(APPQUIT, "Quitter");
 	wxMenu *menuPerso = new wxMenu;		
-	menuPerso->Append(APPQUIT, "Niveau");
-	menuPerso->Append(APPQUIT, "Palet");
+	menuPerso->Append(APPNIVEAU, "Niveau");
+	menuPerso->Append(APPPERSONNALISATION, "Palet");
 
     wxMenuBar *menuBarre = new wxMenuBar();
 	menuBarre->Append(menuFichier, wxT("&Fichier"));
@@ -68,6 +64,9 @@ void MaFenetre::creerMenu()
 
 void MaFenetre::onNouveauJeu(wxCommandEvent &WXUNUSED(event))
 {
+	this->controleurHaptique->Stop();
+	this->controleurHaptique->Start();
+
 	this->controleur->stop();
 	this->controleur->reset();
 	this->controleur->start();
@@ -75,6 +74,7 @@ void MaFenetre::onNouveauJeu(wxCommandEvent &WXUNUSED(event))
 
 void MaFenetre::onQuit(wxCommandEvent &WXUNUSED(event))
 {
+	this->controleurHaptique->Stop();
 	this->controleur->stop();
 	Close();
 }
@@ -83,7 +83,6 @@ void MaFenetre::onWindowMove(wxMoveEvent &WXUNUSED(event))
 {
 	if (GestionnaireSouris::ActivationGestionnaire)
 	{
-		terrainHaptique->recentrer();
-		paletHaptique->recentrer();
+		controleurHaptique->recentrer();
 	}
 }
