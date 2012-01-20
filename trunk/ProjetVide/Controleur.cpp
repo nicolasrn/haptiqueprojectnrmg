@@ -43,6 +43,11 @@ void Controleur::reset()
 	guiTerrain->getBandeau()->getGUIScoreIA()->concat(wxString::Format("%d", 0));
 }
 
+void Controleur::setControleurHaptique(ControleurHaptique *ch)
+{
+	this->controleurHaptique = ch;
+}
+
 void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 {
 	try
@@ -106,7 +111,7 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 				palet->setVecteurDeplacement(dx+palet->getVx(), dy+palet->getVy());
 			}
 			if (GestionnaireSouris::ActivationGestionnaire)
-				paletHaptique->setCentreRelatif(palet->getX(), palet->getY());
+				controleurHaptique->setCentreRelatif(palet->getX(), palet->getY());
 			palet->compute();
 			
 			//mise à jour de la vue

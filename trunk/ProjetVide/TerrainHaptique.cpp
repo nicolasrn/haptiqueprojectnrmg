@@ -1,7 +1,28 @@
 ﻿#include "TerrainHaptique.h"
 
-TerrainHaptique::TerrainHaptique(GUITerrain *fenetre, Terrain *terrain) : ElementHaptique(), fenetre(fenetre), terrain(terrain), mEnclos(NULL)
+TerrainHaptique::TerrainHaptique(GUITerrain *fenetre, Terrain *terrain) : ElementHaptique(), fenetre(fenetre), terrain(terrain), 
+	mEnclos(NULL), mProjet(NULL), mTexture(NULL)
 {
+	mProjet = new CImmProject();
+	if (mProjet->OpenFile("RetoursHaptiques.ifr", GestionnaireSouris::getInstance()->getSouris()))
+	{
+		mTexture = new CImmTexture();
+		if (!mTexture->InitializeFromProject(*mProjet, "Texture", GestionnaireSouris::getInstance()->getSouris(), IMM_PARAM_NODOWNLOAD))
+		{
+			delete mTexture;
+			mTexture = NULL;
+		}
+		//else
+		//	mTexture->Start();
+	}
+
+	mGran = mProjet->CreateEffect("TerrainGran", GestionnaireSouris::getInstance()->getSouris(), IMM_PARAM_NODOWNLOAD);
+	if (!mGran)
+	{
+		delete mGran;
+		mGran = NULL;
+	}
+
 	mCentreEnclosRelatif = wxPoint(fenetre->GetSize().GetWidth()/2, fenetre->GetSize().GetHeight()/2);
 
     if (mEnclos == NULL)
@@ -29,8 +50,6 @@ TerrainHaptique::TerrainHaptique(GUITerrain *fenetre, Terrain *terrain) : Elemen
 			mEnclos = NULL;
 			throw std::exception("erreur initialisation enclos terrain");
 		}
-			
-		mEnclos->Start();
     }
 }
 
@@ -38,7 +57,14 @@ TerrainHaptique::~TerrainHaptique()
 {
 	if (mEnclos != NULL)
 		delete mEnclos;
+	if (mTexture != NULL)
+		delete mTexture;
+	if (mGran != NULL)
+		delete mGran;
+
 	mEnclos = NULL;
+	mTexture = NULL;
+	mGran = NULL;
 }
 
 void TerrainHaptique::recentrer()
@@ -46,4 +72,18 @@ void TerrainHaptique::recentrer()
 	wxPoint centre(mCentreEnclosRelatif);
 	fenetre->ClientToScreen(&centre.x, &centre.y);
 	mEnclos->ChangeCenter(centre.x, centre.y);
+}
+
+void TerrainHaptique::Start()
+{
+	//mGran->Start();
+	//mTexture->Start();
+	mEnclos->Start();
+}
+
+void TerrainHaptique::Stop()
+{
+	//mGran->Stop();
+	//mTexture->Stop();
+	mEnclos->Stop();
 }

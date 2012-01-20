@@ -26,6 +26,10 @@ public:
 
 	virtual void recentrer();
 
+	virtual void Start();
+
+	virtual void Stop();
+
 	virtual void setCentreRelatif(const int &x, const int &y);
 };
 
