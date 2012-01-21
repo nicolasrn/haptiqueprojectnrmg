@@ -5,10 +5,12 @@
 #ifndef __ELEMENT_HAPTIQUE__
 #define __ELEMENT_HAPTIQUE__
 
+#include "Observer.h"
+
 /*!
  * Classe representant les elements haptiques
  */
-class ElementHaptique
+class ElementHaptique 
 {
 public:
 	/*!

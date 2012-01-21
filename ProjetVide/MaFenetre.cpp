@@ -18,18 +18,20 @@ MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height)
 	this->terrain = new Terrain(width, height);
 	this->guiTerrain = new GUITerrain(this, terrain);
 	
+	this->controleur = new Controleur(terrain, guiTerrain);
+
 	GestionnaireSouris::getInstance(wxGetInstance(), this->GetHandle());
+	PaletHaptique *tmp = NULL;
 	if (GestionnaireSouris::ActivationGestionnaire)
 	{
 		controleurHaptique = new ControleurHaptique();
 		controleurHaptique->add(new TerrainHaptique(guiTerrain, terrain));
-		controleurHaptique->add(new PaletHaptique(guiTerrain, terrain));
+		tmp = new PaletHaptique(guiTerrain, terrain);
+		controleurHaptique->add(tmp);
+		controleur->addObserver(tmp);
 	}
 
 	this->controleurHaptique->Start();
-	this->controleur = new Controleur(terrain, guiTerrain);
-	this->controleur->setControleurHaptique(controleurHaptique);
-
 	this->controleur->start();
 
 	this->creerMenu();

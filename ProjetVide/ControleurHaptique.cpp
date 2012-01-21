@@ -10,15 +10,14 @@ ControleurHaptique::~ControleurHaptique()
 
 }
 
-ElementHaptique* ControleurHaptique::add(ElementHaptique *elt)
+void ControleurHaptique::add(ElementHaptique *elt)
 {
 	list.push_back(elt);
-	return elt;
 }
 
 void ControleurHaptique::removeAll()
 {
-	for(int i = 0; i < list.size(); i++)
+	for(unsigned int i = 0; i < list.size(); i++)
 	{
 		delete list[i];
 		list[i] = NULL;
@@ -27,24 +26,24 @@ void ControleurHaptique::removeAll()
 
 void ControleurHaptique::recentrer()
 {
-	for(int i = 0; i < list.size(); i++)
-		list[i]->recentrer();
+	for(std::vector<ElementHaptique*>::iterator i = list.begin(); i != list.end(); i++)
+		(*i)->recentrer();
 }
 
 void ControleurHaptique::Start()
 {
-	for(int i = 0; i < list.size(); i++)
-		list[i]->Start();
+	for(std::vector<ElementHaptique*>::iterator i = list.begin(); i != list.end(); i++)
+		(*i)->Start();
 }
 
 void ControleurHaptique::Stop()
 {
-	for(int i = 0; i < list.size(); i++)
-		list[i]->Stop();
+	for(std::vector<ElementHaptique*>::iterator i = list.begin(); i != list.end(); i++)
+		(*i)->Stop();
 }
 
 void ControleurHaptique::setCentreRelatif(const int &x, const int &y)
 {
-	for(int i = 0; i < list.size(); i++)
-		list[i]->setCentreRelatif(x, y);
+	for(std::vector<ElementHaptique*>::iterator i = list.begin(); i != list.end(); i++)
+		(*i)->setCentreRelatif(x, y);
 }

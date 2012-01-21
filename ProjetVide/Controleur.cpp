@@ -7,7 +7,7 @@ END_EVENT_TABLE();
 bool Controleur::marque = false;
 
 Controleur::Controleur(Terrain *terrain, GUITerrain *guiTerrain) : 
-	wxEvtHandler(), terrain(terrain), guiTerrain(guiTerrain), humainPlayer(new JoueurHuman()), IaPlayer(new JoueurIA()), timer(new wxTimer(this))
+	wxEvtHandler(), Observable(), terrain(terrain), guiTerrain(guiTerrain), humainPlayer(new JoueurHuman()), IaPlayer(new JoueurIA()), timer(new wxTimer(this))
 {
 	Controleur::marque = false;
 	this->humainPlayer->addObserver(this->guiTerrain->getBandeau()->getGUIScoreHuman());
@@ -43,11 +43,6 @@ void Controleur::reset()
 	guiTerrain->getBandeau()->getGUIScoreIA()->concat(wxString::Format("%d", 0));
 }
 
-void Controleur::setControleurHaptique(ControleurHaptique *ch)
-{
-	this->controleurHaptique = ch;
-}
-
 void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 {
 	try
@@ -74,7 +69,7 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 		
 				vy = (collisione->getY() < palet->getY()) ? 1 : -1;
 				vx = (collisione->getX() < palet->getX()) ? 1 : -1;
-		
+				
 				palet->setVecteurDeplacement(vx, vy);
 			}
 
@@ -110,8 +105,14 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 				}
 				palet->setVecteurDeplacement(dx+palet->getVx(), dy+palet->getVy());
 			}
-			if (GestionnaireSouris::ActivationGestionnaire)
-				controleurHaptique->setCentreRelatif(palet->getX(), palet->getY());
+			//si la souris haptique est présente, si collision entre raquette humain et palet alors declanchement
+			if (GestionnaireSouris::ActivationGestionnaire && collisione != NULL && collisione == terrain->getHuman())
+			{
+				//controleurHaptique->setCentreRelatif(palet->getX(), palet->getY());
+				this->setChanged();
+				DataCoordonnee data(palet->getX(), palet->getY(), vx, vy);
+				this->notifyObservers(&data);
+			}
 			palet->compute();
 			
 			//mise à jour de la vue

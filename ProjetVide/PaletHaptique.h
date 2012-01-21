@@ -9,8 +9,9 @@
 #include "Terrain.h"
 #include "GestionnaireSouris.h"
 #include "GUITerrain.h"
+#include "Observer.h"
 
-class PaletHaptique : public ElementHaptique
+class PaletHaptique : public ElementHaptique, public Observer
 {
 private:
 	Terrain *terrain;
@@ -18,6 +19,8 @@ private:
 
 	wxPoint mCentreEnclosRelatif;
 	CImmEllipse *mEnclos;
+
+	CImmRamp *force;
 
 public:
 	PaletHaptique(GUITerrain *fenetre, Terrain *terrain);
@@ -31,6 +34,8 @@ public:
 	virtual void Stop();
 
 	virtual void setCentreRelatif(const int &x, const int &y);
+
+	virtual void update(Observable *o, Data *data);
 };
 
 #endif

@@ -69,3 +69,13 @@ GUIBandeau* GUITerrain::getBandeau()const
 {
 	return this->bandeau;
 }
+
+GUIRaquette*  GUITerrain::getHumanRaquette()const
+{
+	return this->guiHuman;
+}
+
+GUIRaquette*  GUITerrain::getIaRaquette()const
+{
+	return this->guiIA;
+}

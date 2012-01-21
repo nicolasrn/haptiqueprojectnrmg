@@ -76,8 +76,24 @@ public:
 	 * \return GUIBandeau
 	 */
 	GUIBandeau* getBandeau()const;
-
+	
+	/*!
+	 * Getteur raquette palet
+	 * \return GUIBandeau
+	 */
 	GUIPalet* getGuiPalet();
+	
+	/*!
+	 * Getteur raquette humain
+	 * \return GUIBandeau
+	 */
+	GUIRaquette* getHumanRaquette()const;
+	
+	/*!
+	 * Getteur raquette IA
+	 * \return GUIBandeau
+	 */
+	GUIRaquette* getIaRaquette()const;
 
 	DECLARE_EVENT_TABLE();
 };
@@ -101,9 +117,9 @@ public:
 		label->SetLabel(tmp);
 	}
 
-	void update(Observable *WXUNUSED(o), Data data)
+	void update(Observable *WXUNUSED(o), Data *data)
 	{
-		this->concat(wxString::Format("%d", data.score));
+		this->concat(wxString::Format("%d", ((DataScore*)data)->score));
 	}
 
 	int getHeight()const

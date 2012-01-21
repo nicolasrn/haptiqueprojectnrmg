@@ -32,8 +32,9 @@ public:
 	void incrementScore(const unsigned int &v = 1)
 	{
 		score += v;
+		DataScore data(score);
 		this->setChanged();
-		this->notifyObservers(Data(score));
+		this->notifyObservers(&data);
 	}
 
 	/*!
