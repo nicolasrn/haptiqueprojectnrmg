@@ -12,8 +12,6 @@ TerrainHaptique::TerrainHaptique(GUITerrain *fenetre, Terrain *terrain) : Elemen
 			delete mTexture;
 			mTexture = NULL;
 		}
-		//else
-		//	mTexture->Start();
 	}
 
 	mGran = mProjet->CreateEffect("TerrainGran", GestionnaireSouris::getInstance()->getSouris(), IMM_PARAM_NODOWNLOAD);
@@ -24,8 +22,7 @@ TerrainHaptique::TerrainHaptique(GUITerrain *fenetre, Terrain *terrain) : Elemen
 	}
 
 	mCentreEnclosRelatif = wxPoint(fenetre->GetSize().GetWidth()/2, fenetre->GetSize().GetHeight()/2);
-
-    if (mEnclos == NULL)
+	if (mEnclos == NULL)
     {
             mEnclos = new CImmEnclosure();
             wxPoint temp(mCentreEnclosRelatif);
@@ -51,6 +48,17 @@ TerrainHaptique::TerrainHaptique(GUITerrain *fenetre, Terrain *terrain) : Elemen
 			throw std::exception("erreur initialisation enclos terrain");
 		}
     }
+
+	mTexture = new CImmTexture();
+	FEELIT_EFFECT e;
+	if (!mTexture->Initialize(GestionnaireSouris::getInstance()->getSouris(), 
+		e, 
+		IMM_PARAM_NODOWNLOAD))
+	{
+		delete mTexture;
+		mTexture = NULL;
+		wxMessageBox("erreur texture");
+	}
 }
 
 TerrainHaptique::~TerrainHaptique()

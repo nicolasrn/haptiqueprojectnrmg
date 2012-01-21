@@ -22,13 +22,13 @@
 #include "GestionCollision.h"
 #include "GestionnaireSouris.h"
 #include "Joueur.h"
-#include "ControleurHaptique.h"
+#include "Observer.h"
 
 /*!
  * \brief Controleur de l'application
  * Controleur de l'application
  */
-class Controleur : public wxEvtHandler
+class Controleur : public wxEvtHandler, public Observable
 {
 private:
 	Terrain *terrain;/*!< Pointeur vers le modele*/
@@ -40,7 +40,6 @@ private:
 
 	static bool marque;/*!< Sert de verification */
 
-	ControleurHaptique *controleurHaptique;
 public:
 	/*!
 	 * \brief Constructeur
@@ -73,11 +72,6 @@ public:
 	 */
 	void reset();
 
-	/*!
-	 * Reference vers le controleur haptique
-	 */
-	void setControleurHaptique(ControleurHaptique *ch);
-	
 	/*!
 	 * \brief Permet de repeter les actions du controleur toutes les n secondes
 	 * Permet de repeter les actions du controleur toutes les n secondes

@@ -8,16 +8,35 @@
 #pragma once
 
 #include <iostream>
-#include <vector>
+#include <set>
 
 class Observer;
 class Observable;
 
 struct Data
 {
-	unsigned int score;
+	/*unsigned int score;
 	
 	Data(const unsigned int &score) : score(score)
+	{
+	}*/
+};
+
+struct DataScore : public Data
+{
+	unsigned int score;
+	
+	DataScore(const unsigned int &score) : score(score)
+	{
+	}
+};
+
+struct DataCoordonnee : public Data
+{
+	unsigned int x, y;
+	int vx, vy;
+
+	DataCoordonnee(const unsigned int &x, const unsigned int &y, const int &vx, const int &vy) : x(x), y(y), vx(vx), vy(vy)
 	{
 	}
 };
@@ -33,7 +52,7 @@ public:
 	 * \brief Methode de mise a jour
 	 * Methode appele lors du notifyObservers
 	 */
-	virtual void update(Observable *o, Data data) = 0;
+	virtual void update(Observable *o, Data *data) = 0;
 };
 
 /*!
@@ -44,10 +63,15 @@ class Observable
 {
 private:
 	/*!< Liste contenant les observers */
-	std::vector<Observer*> list;
+	std::set<Observer*> list;
 	bool changed;
 
 public:
+	/*!
+	 * Constructeur
+	 */
+	Observable();
+
 	/*!
 	 * \brief Ajoute un observer
 	 * Ajoute un observer
@@ -91,7 +115,7 @@ public:
 	 * Notify les observers
 	 * \param data : n'importe quel objet
 	 */
-	void notifyObservers(Data data);
+	void notifyObservers(Data *data);
 };
 
 #endif

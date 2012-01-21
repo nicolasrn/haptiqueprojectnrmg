@@ -1,6 +1,7 @@
 ﻿#include "PaletHaptique.h"
 
-PaletHaptique::PaletHaptique(GUITerrain *fenetre, Terrain *terrain) : ElementHaptique(), fenetre(fenetre), terrain(terrain), mEnclos(NULL)
+PaletHaptique::PaletHaptique(GUITerrain *fenetre, Terrain *terrain) : ElementHaptique(), Observer(),
+	fenetre(fenetre), terrain(terrain), mEnclos(NULL), force(NULL)
 {
 	this->mCentreEnclosRelatif = wxPoint(terrain->getPalet()->getX(), terrain->getPalet()->getY() + terrain->getYStart());
 	if (mEnclos == NULL)
@@ -29,13 +30,28 @@ PaletHaptique::PaletHaptique(GUITerrain *fenetre, Terrain *terrain) : ElementHap
 			throw std::exception("erreur initialisation enclos terrain");
 		}
 	}
+
+	force = new CImmRamp();
+	if (!force->Initialize(GestionnaireSouris::getInstance()->getSouris(), 
+		1L, 1L, //direction x, y
+		500, //duree
+		0, 5000, //force debut, fin
+		(LPFEELIT_ENVELOPE)0,IMM_PARAM_NODOWNLOAD))
+	{
+		delete force;
+		force = NULL;
+	}
 }
 
 PaletHaptique::~PaletHaptique()
 {
 	if (mEnclos != NULL)
 		delete mEnclos;
+	if (force != NULL)
+		delete force;
+
 	mEnclos = NULL;
+	force = NULL;
 }
 
 void PaletHaptique::recentrer()
@@ -62,4 +78,14 @@ void PaletHaptique::Start()
 void PaletHaptique::Stop()
 {
 	this->mEnclos->Stop();
+}
+
+void PaletHaptique::update(Observable *o, Data *data)
+{
+	DataCoordonnee *d = (DataCoordonnee*)data;
+	long anglex = d->vx, angley = d->vy;
+	this->setCentreRelatif(d->x, d->y);
+
+	force->ChangeDirection(anglex, angley);
+	force->Start();
 }

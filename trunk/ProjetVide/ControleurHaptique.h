@@ -16,7 +16,7 @@ public:
 
 	~ControleurHaptique();
 
-	ElementHaptique* add(ElementHaptique *elt);
+	void add(ElementHaptique *elt);
 
 	void removeAll();
 
