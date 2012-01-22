@@ -1,27 +1,28 @@
 #pragma once
 
-#ifndef __GUITERRAINHAPTIQUE__
-#define __GUITERRAINHAPTIQUE__
+#ifndef __TERRAINHAPTIQUE__
+#define __TERRAINHAPTIQUE__
 
 #include <IFC.h>
-
-#include "TerrainTresGlissantHaptique.h"
+#include "ElementHaptique.h"
+#include "GUITerrain.h"
+#include "Terrain.h"
 #include "GestionnaireSouris.h"
 
-class TerrainHaptique : public TerrainTresGlissantHaptique
+class TerrainHaptique : public ElementHaptique
 {
-private:
-	CImmProject *mProjet;
+protected:
+	GUITerrain *fenetre;
+	Terrain *terrain;
 
-	CImmTexture *mTexture;
-
-	CImmCompoundEffect *mGran;
+	wxPoint mCentreEnclosRelatif;
+	CImmEnclosure *mEnclos;
 
 public:
 	TerrainHaptique(GUITerrain *fenetre, Terrain *terrain);
 
 	virtual ~TerrainHaptique();
-
+	
 	virtual void recentrer();
 
 	virtual void Start();

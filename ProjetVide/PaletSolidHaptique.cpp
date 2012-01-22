@@ -1,7 +1,6 @@
 ﻿#include "PaletSolidHaptique.h"
 
-PaletSolidHaptique::PaletSolidHaptique(GUITerrain *fenetre, Terrain *terrain) : ElementHaptique(), Observer(),
-	fenetre(fenetre), terrain(terrain)/*, mEnclos(NULL)*/, force(NULL)
+PaletSolidHaptique::PaletSolidHaptique(GUITerrain *fenetre, Terrain *terrain) : PaletHaptique(fenetre, terrain), force(NULL)
 {
 	/*this->mCentreEnclosRelatif = wxPoint(terrain->getPalet()->getX(), terrain->getPalet()->getY());
 	if (mEnclos == NULL)

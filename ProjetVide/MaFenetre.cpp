@@ -31,7 +31,7 @@ MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height)
 	if (GestionnaireSouris::ActivationGestionnaire)
 	{
 		controleurHaptique = new ControleurHaptique();
-		controleurHaptique->add(new TerrainHaptique(guiTerrain, terrain));
+		controleurHaptique->add(new TerrainNormalHaptique(guiTerrain, terrain));
 		tmp = new PaletSolidHaptique(guiTerrain, terrain);
 		controleurHaptique->add(tmp);
 		tmpb = new ButHaptique();
@@ -52,7 +52,9 @@ MaFenetre::~MaFenetre()
 	delete terrain;
 	delete guiTerrain;
 	delete controleurHaptique;
+	delete controleur;
 
+	controleur = NULL;
 	controleurHaptique = NULL;
 	terrain = NULL;
 	guiTerrain = NULL;

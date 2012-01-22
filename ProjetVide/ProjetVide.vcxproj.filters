@@ -120,6 +120,12 @@
     <ClInclude Include="TerrainGluantHaptique.h">
       <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
     </ClInclude>
+    <ClInclude Include="PaletHaptique.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainNormalHaptique.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MonApp.cpp">
@@ -192,6 +198,12 @@
       <Filter>Fichiers sources\Modele\Haptique</Filter>
     </ClCompile>
     <ClCompile Include="TerrainGluantHaptique.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
+    </ClCompile>
+    <ClCompile Include="PaletHaptique.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainNormalHaptique.cpp">
       <Filter>Fichiers sources\Modele\Haptique</Filter>
     </ClCompile>
   </ItemGroup>

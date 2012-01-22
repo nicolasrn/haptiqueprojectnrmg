@@ -1,7 +1,7 @@
 #include "PaletElastiqueHaptique.h"
 
 
-PaletElastiqueHaptique::PaletElastiqueHaptique()
+PaletElastiqueHaptique::PaletElastiqueHaptique(GUITerrain *fenetre, Terrain *terrain) : PaletHaptique(fenetre, terrain)
 {
 }
 
@@ -19,5 +19,9 @@ void PaletElastiqueHaptique::Start()
 }
 
 void PaletElastiqueHaptique::Stop()
+{
+}
+
+void PaletElastiqueHaptique::update(Observable *o, Data *data)
 {
 }

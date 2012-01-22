@@ -1,17 +1,17 @@
 #pragma once
 
-#include "TerrainTresGlissantHaptique.h"
+#ifndef __TERRAINGLUANT__
+#define __TERRAINGLUANT__
 
-class TerrainGluantHaptique : public TerrainTresGlissantHaptique
+#include "TerrainHaptique.h"
+
+class TerrainGluantHaptique : public TerrainHaptique
 {
 public:
 	TerrainGluantHaptique(GUITerrain *fenetre, Terrain *terrain);
+
 	virtual ~TerrainGluantHaptique();
 
-	virtual void recentrer();
-
-	virtual void Start();
-
-	virtual void Stop();
 };
 
+#endif

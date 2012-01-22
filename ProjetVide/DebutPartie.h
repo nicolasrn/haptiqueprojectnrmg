@@ -1,7 +1,11 @@
 #pragma once
-#include "elementhaptique.h"
-class DebutPartie :
-	public ElementHaptique
+
+#ifndef __DEBUT_PARTIE__
+#define __DEBUT_PARTIE__
+
+#include "ElementHaptique.h"
+
+class DebutPartie :	public ElementHaptique
 {
 public:
 	DebutPartie();
@@ -14,3 +18,4 @@ public:
 	virtual void Stop();
 };
 
+#endif

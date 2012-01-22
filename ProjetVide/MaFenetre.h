@@ -28,6 +28,7 @@
 	#include "FinPartie.h"
 
 	#include "TerrainHaptique.h"
+	#include "TerrainNormalHaptique.h"
 	#include "TerrainTresGlissantHaptique.h"
 	#include "TerrainGluantHaptique.h"
 
