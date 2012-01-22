@@ -11,21 +11,21 @@
 #include "GUITerrain.h"
 #include "Observer.h"
 
-class PaletHaptique : public ElementHaptique, public Observer
+class PaletSolidHaptique : public ElementHaptique, public Observer
 {
 private:
 	Terrain *terrain;
 	GUITerrain *fenetre;
 
-	wxPoint mCentreEnclosRelatif;
-	CImmEllipse *mEnclos;
+	//wxPoint mCentreEnclosRelatif;
+	//CImmEllipse *mEnclos;
 
 	CImmRamp *force;
 
 public:
-	PaletHaptique(GUITerrain *fenetre, Terrain *terrain);
+	PaletSolidHaptique(GUITerrain *fenetre, Terrain *terrain);
 
-	virtual ~PaletHaptique();
+	virtual ~PaletSolidHaptique();
 
 	virtual void recentrer();
 
