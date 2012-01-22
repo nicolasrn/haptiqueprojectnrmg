@@ -5,14 +5,29 @@
 #ifndef __ELEMENT_HAPTIQUE__
 #define __ELEMENT_HAPTIQUE__
 
-#include "Observer.h"
-
 /*!
  * Classe representant les elements haptiques
  */
 class ElementHaptique 
 {
+protected:
+	bool debut;
+
 public:
+	ElementHaptique() : debut(false)
+	{
+	}
+
+	bool getDebut()const
+	{
+		return debut;
+	}
+
+	void setDebut(const bool &b)
+	{
+		this->debut = b;
+	}
+
 	/*!
 	 * la methode permettant de recentrer les effets lors de deplacements de fenetre
 	 */

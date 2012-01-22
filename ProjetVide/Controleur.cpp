@@ -66,7 +66,7 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 			if (GestionCollision::isCircleCollisionBetween(palet, terrain->getList(), &collisione))
 			{
 				//définition du vecteur de déplacement du palet
-		
+				
 				vy = (collisione->getY() < palet->getY()) ? 1 : -1;
 				vx = (collisione->getX() < palet->getX()) ? 1 : -1;
 				
@@ -97,6 +97,11 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 					{
 						Controleur::marque = true;
 						j->incrementScore();
+
+						this->setChanged();
+						DataBut data;
+						this->notifyObservers(&data);
+
 						palet->setVecteurDeplacement(0, 0);
 						palet->setX(terrain->getWidth()/2);
 						palet->setY(terrain->getHeight()/2);

@@ -44,15 +44,6 @@ public:
 	static bool isCircleCollisionBetween(Palet *a, std::vector<Element *> list, Element **elt);
 
 	/*!
-	 * \brief charge de detecter les collisions entre des objets cercle et rectangle
-	 * charge de detecter les collisions entre des objets cercle et rectangle
-	 * \param A : le palet
-	 * \param B : le rectangle
-	 * \return bool : true si ou false sinon
-	 */
-	static bool isCircleSquareCollisionBetween(Palet *A, Element *B);
-	
-	/*!
 	 * \brief charge de detecter les collisions entre des objets cercle et le terrain
 	 * charge de detecter les collisions entre des objets cercle et le terrain
 	 * \param A : le palet

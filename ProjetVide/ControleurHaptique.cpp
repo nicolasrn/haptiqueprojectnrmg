@@ -33,7 +33,13 @@ void ControleurHaptique::recentrer()
 void ControleurHaptique::Start()
 {
 	for(std::vector<ElementHaptique*>::iterator i = list.begin(); i != list.end(); i++)
-		(*i)->Start();
+	{
+		if ((*i)->getDebut())
+		{
+			(*i)->Start();
+			(*i)->setDebut(true);
+		}
+	}
 }
 
 void ControleurHaptique::Stop()

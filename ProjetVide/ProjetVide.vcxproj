@@ -79,16 +79,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="But.h" />
+    <ClInclude Include="ButHaptique.h" />
     <ClInclude Include="Controleur.h" />
     <ClInclude Include="ControleurHaptique.h" />
+    <ClInclude Include="DebutPartie.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="ElementAAfficher.h" />
     <ClInclude Include="ElementHaptique.h" />
+    <ClInclude Include="FinPartie.h" />
     <ClInclude Include="GestionCollision.h" />
     <ClInclude Include="GestionnaireSouris.h" />
     <ClInclude Include="GUIBut.h" />
     <ClInclude Include="GUIPalet.h" />
-    <ClInclude Include="PaletHaptique.h" />
+    <ClInclude Include="PaletElastiqueHaptique.h" />
+    <ClInclude Include="PaletSolidHaptique.h" />
     <ClInclude Include="GUIRaquette.h" />
     <ClInclude Include="GUITerrain.h" />
     <ClInclude Include="TerrainHaptique.h" />
@@ -99,17 +103,23 @@
     <ClInclude Include="Palet.h" />
     <ClInclude Include="Raquette.h" />
     <ClInclude Include="Terrain.h" />
+    <ClInclude Include="TerrainTresGlissantHaptique.h" />
+    <ClInclude Include="TerrainGluantHaptique.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="But.cpp" />
+    <ClCompile Include="ButHaptique.cpp" />
     <ClCompile Include="Controleur.cpp" />
     <ClCompile Include="ControleurHaptique.cpp" />
+    <ClCompile Include="DebutPartie.cpp" />
     <ClCompile Include="ElementAAfficher.cpp" />
+    <ClCompile Include="FinPartie.cpp" />
     <ClCompile Include="GestionCollision.cpp" />
     <ClCompile Include="GestionnaireSouris.cpp" />
     <ClCompile Include="GUIBut.cpp" />
     <ClCompile Include="GUIPalet.cpp" />
-    <ClCompile Include="PaletHaptique.cpp" />
+    <ClCompile Include="PaletElastiqueHaptique.cpp" />
+    <ClCompile Include="PaletSolidHaptique.cpp" />
     <ClCompile Include="GUIRaquette.cpp" />
     <ClCompile Include="GUITerrain.cpp" />
     <ClCompile Include="TerrainHaptique.cpp" />
@@ -119,6 +129,8 @@
     <ClCompile Include="Palet.cpp" />
     <ClCompile Include="Raquette.cpp" />
     <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="TerrainTresGlissantHaptique.cpp" />
+    <ClCompile Include="TerrainGluantHaptique.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

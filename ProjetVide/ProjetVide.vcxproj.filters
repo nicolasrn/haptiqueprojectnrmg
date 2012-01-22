@@ -87,9 +87,6 @@
     <ClInclude Include="TerrainHaptique.h">
       <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
     </ClInclude>
-    <ClInclude Include="PaletHaptique.h">
-      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
-    </ClInclude>
     <ClInclude Include="GestionnaireSouris.h">
       <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
     </ClInclude>
@@ -101,6 +98,27 @@
     </ClInclude>
     <ClInclude Include="Element.h">
       <Filter>Fichiers d%27en-tête\Modele</Filter>
+    </ClInclude>
+    <ClInclude Include="ButHaptique.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
+    <ClInclude Include="DebutPartie.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
+    <ClInclude Include="PaletSolidHaptique.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
+    <ClInclude Include="PaletElastiqueHaptique.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainTresGlissantHaptique.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
+    <ClInclude Include="FinPartie.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainGluantHaptique.h">
+      <Filter>Fichiers d%27en-tête\Modele\Haptique</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -146,9 +164,6 @@
     <ClCompile Include="Observer.cpp">
       <Filter>Fichiers sources\Controleur</Filter>
     </ClCompile>
-    <ClCompile Include="PaletHaptique.cpp">
-      <Filter>Fichiers sources\Modele\Haptique</Filter>
-    </ClCompile>
     <ClCompile Include="TerrainHaptique.cpp">
       <Filter>Fichiers sources\Modele\Haptique</Filter>
     </ClCompile>
@@ -157,6 +172,27 @@
     </ClCompile>
     <ClCompile Include="ControleurHaptique.cpp">
       <Filter>Fichiers sources\Controleur</Filter>
+    </ClCompile>
+    <ClCompile Include="ButHaptique.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
+    </ClCompile>
+    <ClCompile Include="DebutPartie.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
+    </ClCompile>
+    <ClCompile Include="PaletSolidHaptique.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
+    </ClCompile>
+    <ClCompile Include="PaletElastiqueHaptique.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainTresGlissantHaptique.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
+    </ClCompile>
+    <ClCompile Include="FinPartie.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
+    </ClCompile>
+    <ClCompile Include="TerrainGluantHaptique.cpp">
+      <Filter>Fichiers sources\Modele\Haptique</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

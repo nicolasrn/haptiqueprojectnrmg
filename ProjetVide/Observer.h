@@ -13,8 +13,12 @@
 class Observer;
 class Observable;
 
-struct Data
+class Data
 {
+public:
+	virtual ~Data()
+	{
+	}
 	/*unsigned int score;
 	
 	Data(const unsigned int &score) : score(score)
@@ -22,21 +26,40 @@ struct Data
 	}*/
 };
 
-struct DataScore : public Data
+class DataScore : public Data
 {
+public:
 	unsigned int score;
 	
-	DataScore(const unsigned int &score) : score(score)
+	DataScore(const unsigned int &score) : Data(), score(score)
+	{
+	}
+
+	virtual ~DataScore()
 	{
 	}
 };
 
-struct DataCoordonnee : public Data
+class DataCoordonnee : public Data
 {
+public:
 	unsigned int x, y;
 	int vx, vy;
 
-	DataCoordonnee(const unsigned int &x, const unsigned int &y, const int &vx, const int &vy) : x(x), y(y), vx(vx), vy(vy)
+	DataCoordonnee(const unsigned int &x, const unsigned int &y, const int &vx, const int &vy) : 
+		Data(), x(x), y(y), vx(vx), vy(vy)
+	{
+	}
+
+	virtual ~DataCoordonnee()
+	{
+	}
+};
+
+class DataBut : public Data
+{
+public:
+	virtual ~DataBut()
 	{
 	}
 };

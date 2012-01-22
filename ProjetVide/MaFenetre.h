@@ -21,8 +21,18 @@
 	#include "Controleur.h"
 	#include "GestionnaireSouris.h"
 	#include "ControleurHaptique.h"
+	
+	#include "ButHaptique.h"
+	
+	#include "DebutPartie.h"
+	#include "FinPartie.h"
+
 	#include "TerrainHaptique.h"
-	#include "PaletHaptique.h"
+	#include "TerrainTresGlissantHaptique.h"
+	#include "TerrainGluantHaptique.h"
+
+	#include "PaletSolidHaptique.h"
+	#include "PaletElastiqueHaptique.h"
 
 	/*!
 	 * \enum 
@@ -34,7 +44,11 @@
 		APPQUIT = wxID_HIGHEST + 1,
 		APPNOUVEAUJEU,
 		APPNIVEAU,
-		APPPERSONNALISATION
+		APPTERRAINNORMAL,
+		APPTERRAINTRESGLISSANT,
+		APPTERRAINGLUANT,
+		APPPALETSOLID,
+		APPPALETELSATIQUE
 	};
 	
 	/*!
@@ -83,6 +97,12 @@
 		 * \param event : l'evenement
 		 */
 		void onNouveauJeu(wxCommandEvent& WXUNUSED(event));
+		
+		/*!
+		 * Action permettant le choix du terrain et du terrain
+		 * \param event : l'evenement
+		 */
+		void choix(wxCommandEvent& event);
 		
 		/*!
 		 * \brief Permet de quitter

@@ -5,24 +5,18 @@
 
 #include <IFC.h>
 
-#include "ElementHaptique.h"
-#include "Terrain.h"
+#include "TerrainTresGlissantHaptique.h"
 #include "GestionnaireSouris.h"
-#include "GUITerrain.h"
 
-class TerrainHaptique : public ElementHaptique
+class TerrainHaptique : public TerrainTresGlissantHaptique
 {
 private:
-	Terrain *terrain;
-
-	GUITerrain *fenetre;
-
 	CImmProject *mProjet;
 
-	wxPoint mCentreEnclosRelatif;
-	CImmEnclosure *mEnclos;
 	CImmTexture *mTexture;
+
 	CImmCompoundEffect *mGran;
+
 public:
 	TerrainHaptique(GUITerrain *fenetre, Terrain *terrain);
 
