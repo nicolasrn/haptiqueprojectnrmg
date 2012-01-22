@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef __GUIPALETHAPTIQUE__
-#define __GUIPALETHAPTIQUE__
+#ifndef __PALETSOLID__
+#define __PALETSOLID__
 
 #include <IFC.h>
 
@@ -10,16 +10,11 @@
 #include "GestionnaireSouris.h"
 #include "GUITerrain.h"
 #include "Observer.h"
+#include "PaletHaptique.h"
 
-class PaletSolidHaptique : public ElementHaptique, public Observer
+class PaletSolidHaptique : public PaletHaptique
 {
 private:
-	Terrain *terrain;
-	GUITerrain *fenetre;
-
-	//wxPoint mCentreEnclosRelatif;
-	//CImmEllipse *mEnclos;
-
 	CImmRamp *force;
 
 public:

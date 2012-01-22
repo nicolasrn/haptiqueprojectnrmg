@@ -92,6 +92,7 @@
     <ClInclude Include="GUIBut.h" />
     <ClInclude Include="GUIPalet.h" />
     <ClInclude Include="PaletElastiqueHaptique.h" />
+    <ClInclude Include="PaletHaptique.h" />
     <ClInclude Include="PaletSolidHaptique.h" />
     <ClInclude Include="GUIRaquette.h" />
     <ClInclude Include="GUITerrain.h" />
@@ -103,6 +104,7 @@
     <ClInclude Include="Palet.h" />
     <ClInclude Include="Raquette.h" />
     <ClInclude Include="Terrain.h" />
+    <ClInclude Include="TerrainNormalHaptique.h" />
     <ClInclude Include="TerrainTresGlissantHaptique.h" />
     <ClInclude Include="TerrainGluantHaptique.h" />
   </ItemGroup>
@@ -119,6 +121,7 @@
     <ClCompile Include="GUIBut.cpp" />
     <ClCompile Include="GUIPalet.cpp" />
     <ClCompile Include="PaletElastiqueHaptique.cpp" />
+    <ClCompile Include="PaletHaptique.cpp" />
     <ClCompile Include="PaletSolidHaptique.cpp" />
     <ClCompile Include="GUIRaquette.cpp" />
     <ClCompile Include="GUITerrain.cpp" />
@@ -129,6 +132,7 @@
     <ClCompile Include="Palet.cpp" />
     <ClCompile Include="Raquette.cpp" />
     <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="TerrainNormalHaptique.cpp" />
     <ClCompile Include="TerrainTresGlissantHaptique.cpp" />
     <ClCompile Include="TerrainGluantHaptique.cpp" />
   </ItemGroup>

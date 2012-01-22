@@ -1,55 +1,58 @@
 ﻿#include "TerrainHaptique.h"
 
-TerrainHaptique::TerrainHaptique(GUITerrain *fenetre, Terrain *terrain) : TerrainTresGlissantHaptique(fenetre, terrain),
-	mProjet(NULL), mTexture(NULL), mGran(NULL)
+TerrainHaptique::TerrainHaptique(GUITerrain *fenetre, Terrain *terrain) : ElementHaptique(), fenetre(fenetre), terrain(terrain), mEnclos(NULL)
 {
-	mProjet = new CImmProject();
-	if (mProjet->OpenFile("RetoursHaptiques.ifr", GestionnaireSouris::getInstance()->getSouris()))
-	{
-		mTexture = new CImmTexture();
-		if (!mTexture->InitializeFromProject(*mProjet, "Texture", GestionnaireSouris::getInstance()->getSouris(), IMM_PARAM_NODOWNLOAD))
+	debut = true;
+	mCentreEnclosRelatif = wxPoint(fenetre->GetSize().GetWidth()/2, fenetre->GetSize().GetHeight()/2);
+	if (mEnclos == NULL)
+    {
+            mEnclos = new CImmEnclosure();
+            wxPoint temp(mCentreEnclosRelatif);
+            fenetre->ClientToScreen(&temp.x, &temp.y);
+            POINT centreEnclos;
+            centreEnclos.x = temp.x;
+            centreEnclos.y = temp.y;
+            if (!mEnclos->Initialize(GestionnaireSouris::getInstance()->getSouris(),
+				fenetre->GetSize().GetWidth(), fenetre->GetSize().GetHeight(), // dimensions
+                            -10000, -10000, //dureté des murs
+                            10, 10, //épaisseur des murs
+                            10000, 10000, //saturation des murs/force max
+                            IMM_STIFF_ANYWALL,//masque d’application du retour
+                            0x0, //masque de clipping
+                            centreEnclos, //centre
+                            NULL, //effet dans l’enclos
+                            0, //angle de rotation de l’enclos, exprimé en centigrade
+                            //45° ⇒ 4500 !!!
+                            IMM_PARAM_NODOWNLOAD))
 		{
-			delete mTexture;
-			mTexture = NULL;
+			delete mEnclos;
+			mEnclos = NULL;
+			throw std::exception("erreur initialisation enclos terrain");
 		}
-	}
-
-	this->mEnclos->ChangeInsideEffect(mTexture);
-
-	mGran = mProjet->CreateEffect("TerrainGran", GestionnaireSouris::getInstance()->getSouris(), IMM_PARAM_NODOWNLOAD);
-	if (!mGran)
-	{
-		delete mGran;
-		mGran = NULL;
-	}
+    }
 }
 
 TerrainHaptique::~TerrainHaptique()
 {
-	if (mTexture != NULL)
-		delete mTexture;
-	if (mGran != NULL)
-		delete mGran;
-
-	mTexture = NULL;
-	mGran = NULL;
+	if (mEnclos != NULL)
+		delete mEnclos;
+	
+	mEnclos = NULL;
 }
 
 void TerrainHaptique::recentrer()
 {
-	TerrainTresGlissantHaptique::recentrer();
+	wxPoint centre(mCentreEnclosRelatif);
+	fenetre->ClientToScreen(&centre.x, &centre.y);
+	mEnclos->ChangeCenter(centre.x, centre.y);
 }
 
 void TerrainHaptique::Start()
 {
-	//mGran->Start();
-	//mTexture->Start();
-	TerrainTresGlissantHaptique::Start();
+	mEnclos->Start();
 }
 
 void TerrainHaptique::Stop()
 {
-	//mGran->Stop();
-	//mTexture->Stop();
-	TerrainTresGlissantHaptique::Stop();
+	mEnclos->Stop();
 }
