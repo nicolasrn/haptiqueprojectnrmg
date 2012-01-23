@@ -4,9 +4,13 @@
 #define __DEBUT_PARTIE__
 
 #include "ElementHaptique.h"
+#include "GestionnaireSouris.h"
 
 class DebutPartie :	public ElementHaptique
 {
+private:
+	CImmCompoundEffect *effets;
+
 public:
 	DebutPartie();
 	virtual ~DebutPartie();

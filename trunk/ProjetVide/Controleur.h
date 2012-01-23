@@ -61,6 +61,12 @@ public:
 	void start(int ms = 0);
 	
 	/*!
+	 * \brief Vérifie si le controleur tourne
+	 * Vérifie si le controleur tourne
+	 */
+	bool isRunning();
+	
+	/*!
 	 * \brief Permet de stopper le timer
 	 * Permet de stopper le timer
 	 */

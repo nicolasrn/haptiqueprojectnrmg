@@ -20,10 +20,7 @@ ButHaptique::~ButHaptique()
 {
 	if (period != NULL)
 		delete period;
-	if (mProjet != NULL)
-		delete mProjet;
 	period = NULL;
-	mProjet = NULL;
 }
 
 void ButHaptique::recentrer()

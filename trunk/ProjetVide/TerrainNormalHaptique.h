@@ -10,7 +10,6 @@
 #include "GUITerrain.h"
 #include "TerrainHaptique.h"
 
-
 class TerrainNormalHaptique : public TerrainHaptique
 {
 private:

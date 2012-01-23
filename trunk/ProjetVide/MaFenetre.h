@@ -44,6 +44,7 @@
 	{
 		APPQUIT = wxID_HIGHEST + 1,
 		APPNOUVEAUJEU,
+		APPPAUSEJEU,
 		APPNIVEAU,
 		APPTERRAINNORMAL,
 		APPTERRAINTRESGLISSANT,
@@ -67,6 +68,18 @@
 
 		Controleur *controleur;/*!< Le controleur jeu */
 		ControleurHaptique *controleurHaptique;/*!< Le controleur haptique */
+
+		/*!< Les menu items des différent menu terrain */
+		wxMenuItem *terrainGlissant, *terrainNormal, *terrainGluant;
+		
+		/*!< Les menu items des différent menu palet */
+		wxMenuItem *paletElastique, *paletSolid;
+
+		ButHaptique *butHaptique;/*!< pointeur vers l'element butHaptique car les observateurs et controleurHaptique ne détruisent pas les éléments */
+		DebutPartie *debutPartie;/*!< pointeur vers l'element debut de la partie car les observateurs et controleurHaptique ne détruisent pas les éléments */
+		FinPartie *finPartie;/*!< pointeur vers l'element fin de la partie car les observateurs et controleurHaptique ne détruisent pas les éléments */
+		TerrainHaptique *terrainHaptique;/*!< pointeur vers l'element terrain car les observateurs et controleurHaptique ne détruisent pas les éléments */
+		PaletHaptique *paletHaptique;/*!< pointeur vers l'element palet car les observateurs et controleurHaptique ne détruisent pas les éléments */
 
 		/*!
 		 * \brief permet la création du menu
@@ -100,10 +113,17 @@
 		void onNouveauJeu(wxCommandEvent& WXUNUSED(event));
 		
 		/*!
+		 * \brief Met sur pause le jeu courrant
+		 * Met sur pause le jeu courrant
+		 * \param event : l'evenement
+		 */
+		void onPause(wxCommandEvent& WXUNUSED(event));
+
+		/*!
 		 * Action permettant le choix du terrain et du terrain
 		 * \param event : l'evenement
 		 */
-		void choix(wxCommandEvent& event);
+		void choix(wxCommandEvent& WXUNUSED(event));
 		
 		/*!
 		 * \brief Permet de quitter

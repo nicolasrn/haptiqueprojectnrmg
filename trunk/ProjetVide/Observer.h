@@ -8,7 +8,7 @@
 #pragma once
 
 #include <iostream>
-#include <set>
+#include <vector>
 
 class Observer;
 class Observable;
@@ -64,6 +64,14 @@ public:
 	}
 };
 
+class DataFinPartie : public Data
+{
+public:
+	virtual ~DataFinPartie()
+	{
+	}
+};
+
 /*!
  * \brief Implementation du pattern observer
  * Implementation du pattern observer
@@ -86,7 +94,7 @@ class Observable
 {
 private:
 	/*!< Liste contenant les observers */
-	std::set<Observer*> list;
+	std::vector<Observer*> list;
 	bool changed;
 
 public:
