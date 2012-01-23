@@ -4,6 +4,7 @@ using namespace std;
 
 BEGIN_EVENT_TABLE(MaFenetre, wxFrame)
 	EVT_MENU(APPNOUVEAUJEU, MaFenetre::onNouveauJeu)
+	EVT_MENU(APPPAUSEJEU, MaFenetre::onPause)
 	EVT_MENU(APPQUIT, MaFenetre::onQuit)
 	EVT_MENU(APPTERRAINNORMAL, MaFenetre::choix)
 	EVT_MENU(APPTERRAINTRESGLISSANT, MaFenetre::choix)
@@ -14,7 +15,13 @@ BEGIN_EVENT_TABLE(MaFenetre, wxFrame)
 END_EVENT_TABLE();
 
 MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height) : wxFrame(NULL,wxID_ANY,title), width(width), height(height)//, mEnclos(NULL), mSouris(NULL)
-{
+{	
+	butHaptique = NULL;
+	debutPartie = NULL;
+	finPartie = NULL;
+	terrainHaptique = NULL;
+	paletHaptique = NULL;
+
 	this->guiTerrain = NULL;
 	this->guiTerrain = NULL;
 	this->controleur = NULL;
@@ -24,27 +31,11 @@ MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height)
 	this->guiTerrain = new GUITerrain(this, terrain);
 	
 	this->controleur = new Controleur(terrain, guiTerrain);
-
-	GestionnaireSouris::getInstance(wxGetInstance(), this->GetHandle());
-	PaletSolidHaptique *tmp = NULL;
-	ButHaptique *tmpb = NULL;
-	if (GestionnaireSouris::ActivationGestionnaire)
-	{
-		controleurHaptique = new ControleurHaptique();
-		controleurHaptique->add(new TerrainNormalHaptique(guiTerrain, terrain));
-		tmp = new PaletSolidHaptique(guiTerrain, terrain);
-		controleurHaptique->add(tmp);
-		tmpb = new ButHaptique();
-		controleurHaptique->add(tmpb);
-
-		controleur->addObserver(tmp);
-		controleur->addObserver(tmpb);
-	}
-
-	this->controleurHaptique->Start();
-	this->controleur->start();
+	this->controleurHaptique = new ControleurHaptique();
 
 	this->creerMenu();
+
+	this->choix((wxCommandEvent)0);
 }
 
 MaFenetre::~MaFenetre()
@@ -53,6 +44,7 @@ MaFenetre::~MaFenetre()
 	delete guiTerrain;
 	delete controleurHaptique;
 	delete controleur;
+	delete GestionnaireSouris::getInstance();
 
 	controleur = NULL;
 	controleurHaptique = NULL;
@@ -64,18 +56,21 @@ void MaFenetre::creerMenu()
 {
 	wxMenu *menuFichier = new wxMenu;
 	menuFichier->Append(APPNOUVEAUJEU, "Nouveau jeu");
+	menuFichier->Append(APPPAUSEJEU, "Pause");
+	menuFichier->AppendSeparator();
     menuFichier->Append(APPQUIT, "Quitter");
 
 	wxMenu *menuPerso = new wxMenu;
 	
 	wxMenu *menuDifficulteTerrain = new wxMenu;
-	menuDifficulteTerrain->AppendRadioItem(APPTERRAINNORMAL, "Normale");
-	menuDifficulteTerrain->AppendRadioItem(APPTERRAINTRESGLISSANT, "Très glissant");
-	menuDifficulteTerrain->AppendRadioItem(APPTERRAINGLUANT, "Gluant");
+	
+	terrainNormal = menuDifficulteTerrain->AppendRadioItem(APPTERRAINNORMAL, "Normale");
+	terrainGlissant = menuDifficulteTerrain->AppendRadioItem(APPTERRAINTRESGLISSANT, "Très glissant");
+	terrainGluant = menuDifficulteTerrain->AppendRadioItem(APPTERRAINGLUANT, "Gluant");
 
 	wxMenu *menuTypePalet = new wxMenu;
-	menuTypePalet->AppendRadioItem(APPPALETSOLID, "Solid");
-	menuTypePalet->AppendRadioItem(APPPALETELSATIQUE, "Elastique");
+	paletSolid = menuTypePalet->AppendRadioItem(APPPALETSOLID, "Solid");
+	paletElastique = menuTypePalet->AppendRadioItem(APPPALETELSATIQUE, "Elastique");
 	
 	menuPerso->AppendSubMenu(menuDifficulteTerrain, "Difficulte terrain");
 	menuPerso->AppendSubMenu(menuTypePalet, "Type palet");
@@ -97,6 +92,21 @@ void MaFenetre::onNouveauJeu(wxCommandEvent &WXUNUSED(event))
 	this->controleur->start();
 }
 
+void MaFenetre::onPause(wxCommandEvent& WXUNUSED(event))
+{
+	//wxMessageBox("this->controleur->isRunning() = " + wxString::Format("%d", this->controleur->isRunning()));
+	if (this->controleur->isRunning())
+	{
+		this->controleurHaptique->Stop();
+		this->controleur->stop();
+	}
+	else
+	{
+		this->controleurHaptique->Start();
+		this->controleur->start();
+	}
+}
+
 void MaFenetre::onQuit(wxCommandEvent &WXUNUSED(event))
 {
 	this->controleurHaptique->Stop();
@@ -104,9 +114,79 @@ void MaFenetre::onQuit(wxCommandEvent &WXUNUSED(event))
 	Close();
 }
 
-void MaFenetre::choix(wxCommandEvent& event)
+void MaFenetre::choix(wxCommandEvent& WXUNUSED(event))
 {
-	wxMessageBox(wxString::Format("%d", event.GetId()));
+	try
+	{
+		GestionnaireSouris::getInstance(wxGetInstance(), GetHandle());
+	}
+	catch(std::exception e)
+	{
+		wxMessageBox(e.what());
+	}
+	
+	controleur->stop();
+	controleurHaptique->Stop();
+
+	if (butHaptique != NULL)
+		delete butHaptique;
+
+	if (debutPartie != NULL)
+		delete debutPartie;
+
+	if (finPartie != NULL)
+		delete finPartie;
+
+	if (terrainHaptique != NULL)
+		delete terrainHaptique;
+
+	if (paletHaptique != NULL)
+		delete paletHaptique;
+
+	butHaptique = NULL;
+	debutPartie = NULL;
+	finPartie = NULL;
+	terrainHaptique = NULL;
+	paletHaptique = NULL;
+
+	controleur->deleteObservers();
+	controleurHaptique->removeAll();
+
+	if (GestionnaireSouris::ActivationGestionnaire)
+	{
+		butHaptique = new ButHaptique();
+		debutPartie = new DebutPartie();
+		finPartie = new FinPartie();
+		
+		if (terrainNormal->IsChecked())
+			terrainHaptique = new TerrainNormalHaptique(guiTerrain, terrain);
+		else if (terrainGlissant->IsChecked())
+			terrainHaptique = new TerrainTresGlissantHaptique(guiTerrain, terrain);
+		else if (terrainGluant->IsChecked())
+			terrainHaptique = new TerrainGluantHaptique(guiTerrain, terrain);
+		else 
+			wxMessageBox("pas de terrain");
+
+		if (paletSolid->IsChecked())
+			paletHaptique = new PaletSolidHaptique(guiTerrain, terrain);
+		else if (paletElastique->IsChecked())
+			paletHaptique = new PaletElastiqueHaptique(guiTerrain, terrain);
+		else
+			wxMessageBox("pas de palet");
+
+		controleurHaptique->add(butHaptique);
+		controleurHaptique->add(debutPartie);
+		controleurHaptique->add(finPartie);
+		controleurHaptique->add(paletHaptique);
+		controleurHaptique->add(terrainHaptique);
+
+		controleur->addObserver(paletHaptique);
+		controleur->addObserver(butHaptique);
+		controleur->addObserver(finPartie);
+	}
+
+	this->controleurHaptique->Start();
+	this->controleur->start();
 }
 
 void MaFenetre::onWindowMove(wxMoveEvent &WXUNUSED(event))

@@ -11,7 +11,9 @@ TerrainNormalHaptique::TerrainNormalHaptique(GUITerrain *fenetre, Terrain *terra
 		{
 			delete mFriction;
 			mFriction = NULL;
+			wxMessageBox("erreur friction");
 		}
+		this->mEnclos->ChangeInsideEffect(mFriction);
 	}
 
 }

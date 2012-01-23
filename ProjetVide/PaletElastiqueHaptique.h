@@ -4,9 +4,13 @@
 #define __PALETELASTIQUE__
 
 #include "PaletHaptique.h"
+#include "GestionnaireSouris.h"
 
 class PaletElastiqueHaptique : public PaletHaptique
 {
+private:
+	CImmSpring *ressort;
+
 public:
 	PaletElastiqueHaptique(GUITerrain *fenetre, Terrain *terrain);
 

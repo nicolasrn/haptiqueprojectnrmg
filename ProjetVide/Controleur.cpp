@@ -25,6 +25,11 @@ void Controleur::start(int ms)
 	timer->Start(ms);
 }
 
+bool Controleur::isRunning()
+{
+	return timer->IsRunning();
+}
+
 void Controleur::stop()
 {
 	timer->Stop();
@@ -58,6 +63,9 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 		if (humainPlayer->getScore() == 7 || IaPlayer->getScore() == 7)
 		{
 			this->stop();
+			this->setChanged();
+			DataFinPartie data;
+			this->notifyObservers(&data);
 			wxMessageBox(humainPlayer->getScore() == 7 ? "Féliciation" : "Doooomaaaaage", "Résultat");
 		}
 

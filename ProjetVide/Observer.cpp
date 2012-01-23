@@ -1,12 +1,12 @@
 #include "Observer.h"
 
-Observable::Observable() : list(std::set<Observer*>())
+Observable::Observable() : list(std::vector<Observer*>())
 {
 }
 
 void Observable::addObserver(Observer *o)
 {
-	list.insert(o);
+	list.push_back(o);
 }
 
 bool Observable::hasChanged()const
@@ -26,7 +26,7 @@ void Observable::clearChanged()
 
 void Observable::deleteObserver(Observer *o)
 {
-	for(std::set<Observer*>::iterator i = list.begin(); i != list.end(); ++i)
+	for(std::vector<Observer*>::iterator i = list.begin(); i != list.end(); ++i)
 		if ((*i) == o)
 			list.erase(i);
 }
@@ -40,7 +40,7 @@ void Observable::notifyObservers(Data *data)
 {
 	if (changed)
 	{
-		for(std::set<Observer*>::iterator i = list.begin(); i != list.end(); ++i)
+		for(std::vector<Observer*>::iterator i = list.begin(); i != list.end(); ++i)
 			(*i)->update(this, data);
 		changed = false;
 	}

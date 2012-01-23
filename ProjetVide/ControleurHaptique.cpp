@@ -17,11 +17,12 @@ void ControleurHaptique::add(ElementHaptique *elt)
 
 void ControleurHaptique::removeAll()
 {
-	for(unsigned int i = 0; i < list.size(); i++)
+	/*for(unsigned int i = 0; i < list.size(); i++)
 	{
 		delete list[i];
 		list[i] = NULL;
-	}
+	}*/
+	list.clear();
 }
 
 void ControleurHaptique::recentrer()
