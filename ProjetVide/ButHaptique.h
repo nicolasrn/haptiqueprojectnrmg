@@ -12,7 +12,6 @@ class ButHaptique : public ElementHaptique, public Observer
 {
 private:
 	CImmPeriodic *period;
-	CImmProject *mProjet;
 
 public:
 	ButHaptique();

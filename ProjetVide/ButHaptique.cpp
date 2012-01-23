@@ -1,9 +1,8 @@
 #include "ButHaptique.h"
 
-ButHaptique::ButHaptique() : ElementHaptique(), Observer(), period(NULL), mProjet(NULL)
+ButHaptique::ButHaptique() : ElementHaptique(), Observer(), period(NULL)
 {
-	mProjet = new CImmProject();
-	if (mProjet->OpenFile("RetoursHaptiques.ifr", GestionnaireSouris::getInstance()->getSouris()))
+	if (mProjet->OpenFile("effet.ifr", GestionnaireSouris::getInstance()->getSouris()))
 	{
 		period = new CImmPeriodic();
 		if (!period->InitializeFromProject(*mProjet, "Periodic", GestionnaireSouris::getInstance()->getSouris(), IMM_PARAM_NODOWNLOAD))
@@ -13,6 +12,7 @@ ButHaptique::ButHaptique() : ElementHaptique(), Observer(), period(NULL), mProje
 			wxMessageBox("erreur period");
 		}
 		period->ChangeDuration(1000);
+		period->ChangeMagnitude(10000);
 	}
 }
 

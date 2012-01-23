@@ -2,37 +2,23 @@
 
 
 TerrainNormalHaptique::TerrainNormalHaptique(GUITerrain *fenetre, Terrain *terrain) : TerrainHaptique(fenetre, terrain),
-	mProjet(NULL), mTexture(NULL), mGran(NULL)
+	mFriction(NULL)
 {
-	mProjet = new CImmProject();
-	if (mProjet->OpenFile("RetoursHaptiques.ifr", GestionnaireSouris::getInstance()->getSouris()))
+	if (mProjet->OpenFile("effet.ifr", GestionnaireSouris::getInstance()->getSouris()))
 	{
-		mTexture = new CImmTexture();
-		if (!mTexture->InitializeFromProject(*mProjet, "Texture", GestionnaireSouris::getInstance()->getSouris(), IMM_PARAM_NODOWNLOAD))
+		mFriction = new CImmFriction();
+		if (!mFriction->InitializeFromProject(*mProjet, "Friction", GestionnaireSouris::getInstance()->getSouris(), IMM_PARAM_NODOWNLOAD))
 		{
-			delete mTexture;
-			mTexture = NULL;
+			delete mFriction;
+			mFriction = NULL;
 		}
 	}
 
-	//this->mEnclos->ChangeInsideEffect(mTexture);
-
-	mGran = mProjet->CreateEffect("TerrainGran", GestionnaireSouris::getInstance()->getSouris(), IMM_PARAM_NODOWNLOAD);
-	if (!mGran)
-	{
-		delete mGran;
-		mGran = NULL;
-	}
 }
-
 
 TerrainNormalHaptique::~TerrainNormalHaptique()
 {
-	if (mTexture != NULL)
-		delete mTexture;
-	if (mGran != NULL)
-		delete mGran;
-
-	mTexture = NULL;
-	mGran = NULL;
+	if (mFriction != NULL)
+		delete mFriction;
+	mFriction = NULL;
 }
