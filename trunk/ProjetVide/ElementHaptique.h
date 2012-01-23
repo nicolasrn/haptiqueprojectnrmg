@@ -5,6 +5,8 @@
 #ifndef __ELEMENT_HAPTIQUE__
 #define __ELEMENT_HAPTIQUE__
 
+#include <IFC.h>
+
 /*!
  * Classe representant les elements haptiques
  */
@@ -12,10 +14,19 @@ class ElementHaptique
 {
 protected:
 	bool debut;
+	CImmProject *mProjet;
 
 public:
-	ElementHaptique() : debut(false)
+	ElementHaptique() : debut(false), mProjet(NULL)
 	{
+		mProjet = new CImmProject();
+	}
+
+	virtual ~ElementHaptique()
+	{
+		if (mProjet != NULL)
+			delete mProjet;
+		mProjet = NULL;
 	}
 
 	bool getDebut()const

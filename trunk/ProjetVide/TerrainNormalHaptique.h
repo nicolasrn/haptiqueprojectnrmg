@@ -14,11 +14,7 @@
 class TerrainNormalHaptique : public TerrainHaptique
 {
 private:
-	CImmProject *mProjet;
-
-	CImmTexture *mTexture;
-
-	CImmCompoundEffect *mGran;
+	CImmFriction *mFriction;
 
 public:
 	TerrainNormalHaptique(GUITerrain *fenetre, Terrain *terrain);
