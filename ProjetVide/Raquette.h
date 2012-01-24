@@ -15,6 +15,8 @@
  */
 class Raquette : public Element
 {
+private:
+	int idJoueur;
 
 public:
 	/*!
@@ -22,15 +24,27 @@ public:
 	 * Constructeur du modele
 	 * \param x : l'abscisse
 	 * \param x : l'ordonnées
+	 * \param idJoueur : identifiant qui sert juste a attribuer une couleur différente aux raquettes entre 0 et 255
 	 */
-	Raquette(const int &x, const int &y);
+	Raquette(const int &x, const int &y, const int &idJoueur);
 	
 	/*!
 	 * \brief Destructeur
 	 * Destructeur 
 	 */
-	virtual ~Raquette(void);
+	virtual ~Raquette();
 	
+	/*!
+	 * \brief Getteur de idJoueur
+	 * Getteur de idJoueur 
+	 */
+	int getIdJoueur()const;
+	
+	/*!
+	 * \brief Getteur de idJoueur
+	 * Getteur de idJoueur 
+	 */
+	void setIdJoueur(const int &idJoueur);
 };
 
 #endif

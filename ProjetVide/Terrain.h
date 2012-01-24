@@ -11,6 +11,7 @@
 #include <iostream>
 #include <vector>
 #include <wx/panel.h>
+#include <ctime>
 
 #include "Element.h"
 #include "Raquette.h"
@@ -48,74 +49,50 @@ public:
 	 * \brief Getteur
 	 * Getteur de la raquette du joueur
 	 */
-	Raquette *getHuman()
-	{
-		return human;
-	}
+	Raquette *getHuman();
 	
 	/*!
 	 * \brief Getteur
 	 * Getteur de la raquette de l'ordinateur
 	 */
-	Raquette *getIa()
-	{
-		return ia;
-	}
+	Raquette *getIa();
 	
 	/*!
 	 * \brief Getteur
 	 * Getteur du palet
 	 */
-	Palet *getPalet()
-	{
-		return palet;
-	}
+	Palet *getPalet();
 	
 	/*!
 	 * \brief Getteur
 	 * Getteur du butNord
 	 */
-	But *getButNord()
-	{
-		return butNord;
-	}
+	But *getButNord();
 	
 	/*!
 	 * \brief Getteur
 	 * Getteur du butSud
 	 */
-	But *getButSud()
-	{
-		return butSud;
-	}
+	But *getButSud();
 
 	/*!
 	 * \brief Getteur
 	 * Getteur de la liste des elements
 	 */
-	std::vector<Element*> getList()
-	{
-		return list;
-	}
+	std::vector<Element*> getList();
 
 	/*!
 	 * \brief Getteur
 	 * Getteur du yStart
 	 */
-	int getYStart()const
-	{
-		return yStart;
-	}
+	int getYStart()const;
 
 	/*!
 	 * \brief Setteur
 	 * Setteur du yStart
 	 * \param ystart : la position initial
 	 */
-	void setYStart(const int &ystart)
-	{
-		this->yStart = ystart;
-	}
+	void setYStart(const int &ystart);
 };
 
 #endif

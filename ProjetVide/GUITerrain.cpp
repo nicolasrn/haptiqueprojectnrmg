@@ -44,19 +44,6 @@ GUIPalet* GUITerrain::getGuiPalet()
 	return guiPalet;
 }
 
-void GUITerrain::dessiner(wxClientDC *dc)
-{
-	dc->DrawLine(0, (this->terrain->getHeight() - (bandeau->getHeight() + 3))/2, this->terrain->getWidth(), (this->terrain->getHeight() - (bandeau->getHeight() + 3))/2);
-
-	//delegation aux objets de se dessiner
-	guiHuman->dessiner(dc);
-	guiIA->dessiner(dc);
-	guiPalet->dessiner(dc);
-	
-	guiButNord->dessiner(dc);
-	guiButSud->dessiner(dc);
-}
-
 void GUITerrain::onSourisMove(wxMouseEvent& event)
 {
 	//wxMessageBox( wxT(wxString::Format("%d", event.GetX()) + " " + wxString::Format("%d", event.GetY())), wxT("Info mouse motion"), wxICON_INFORMATION);
@@ -78,4 +65,25 @@ GUIRaquette*  GUITerrain::getHumanRaquette()const
 GUIRaquette*  GUITerrain::getIaRaquette()const
 {
 	return this->guiIA;
+}
+
+void GUITerrain::dessiner(wxClientDC *dc)
+{
+	//dessin de la zone terrain
+	dc->DrawRectangle(0, this->terrain->getYStart(), this->terrain->getWidth()-17, this->terrain->getHeight()-(this->terrain->getYStart()+3)*3-4);
+	
+	//dessin du centre du terrain
+	dc->DrawCircle(terrain->getWidth()/2, (terrain->getHeight() - terrain->getYStart())/2, terrain->getPalet()->getWidth()*3);
+
+	//dessin du milieu du terrain
+	dc->DrawLine(0, (this->terrain->getHeight() - this->terrain->getYStart())/2, 
+		this->terrain->getWidth()-17, (this->terrain->getHeight() - this->terrain->getYStart())/2);
+	
+	//delegation aux objets de se dessiner
+	guiHuman->dessiner(dc);
+	guiIA->dessiner(dc);
+	guiPalet->dessiner(dc);
+	
+	guiButNord->dessiner(dc);
+	guiButSud->dessiner(dc);
 }

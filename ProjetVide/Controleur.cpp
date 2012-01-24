@@ -41,7 +41,7 @@ void Controleur::reset()
 	IaPlayer->setScore(0);
 
 	terrain->getPalet()->setX(terrain->getWidth()/2);
-	terrain->getPalet()->setY(terrain->getHeight()/2);
+	terrain->getPalet()->setY((terrain->getHeight()/2 - terrain->getYStart()/2));
 	terrain->getPalet()->setVecteurDeplacement(0, 0);
 
 	guiTerrain->getBandeau()->getGUIScoreHuman()->concat(wxString::Format("%d", 0));
@@ -112,7 +112,7 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 
 						palet->setVecteurDeplacement(0, 0);
 						palet->setX(terrain->getWidth()/2);
-						palet->setY(terrain->getHeight()/2);
+						palet->setY((terrain->getHeight()/2 - terrain->getYStart()/2));
 						dx = dy = 0;
 					}
 				}

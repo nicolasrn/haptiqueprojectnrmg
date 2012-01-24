@@ -92,6 +92,24 @@ public:
 	{
 		return height;
 	}
+	
+	/*!
+	 * \brief Setteur de width
+	 * Setteur de width
+	 */
+	virtual void setWidth(const int &width)
+	{
+		this->width = width;
+	}
+	
+	/*!
+	 * \brief Setteur de height
+	 * Setteur de height
+	 */
+	virtual void setHeight(const int &height)
+	{
+		this->height = height;
+	}
 
 };
 
