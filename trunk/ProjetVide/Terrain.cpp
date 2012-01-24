@@ -4,8 +4,9 @@ Terrain::Terrain(const int &width, const int &height) : Element(0, 0, width, hei
 {
 	list = std::vector<Element*>();
 	//initialisation des composants
-	human = new Raquette(width/2, 3*height/8);
-	ia = new Raquette(width/2, height / 8);
+	srand((unsigned int)NULL);
+	human = new Raquette(width/2, 3*height/8, 235);
+	ia = new Raquette(width/2, height / 8, 140);
 
 	butNord = new But(width/4, 0, width/2);
 	butSud  = new But(width/4, height-48, width/2);
@@ -18,7 +19,7 @@ Terrain::Terrain(const int &width, const int &height) : Element(0, 0, width, hei
 
 	//list.push_back(this);
 
-	palet = new Palet(width/2, height/2);
+	palet = new Palet(width/2, (height - yStart)/2);
 }
 
 Terrain::~Terrain()
@@ -34,4 +35,45 @@ Terrain::~Terrain()
 	palet = NULL;
 	butNord = NULL;
 	butSud = NULL;
+}
+
+Raquette* Terrain::getHuman()
+{
+	return human;
+}
+	
+Raquette* Terrain::getIa()
+{
+	return ia;
+}
+	
+Palet* Terrain::getPalet()
+{
+	return palet;
+}
+	
+But* Terrain::getButNord()
+{
+	return butNord;
+}
+	
+But* Terrain::getButSud()
+{
+	return butSud;
+}
+
+std::vector<Element*> Terrain::getList()
+{
+	return list;
+}
+
+int Terrain::getYStart()const
+{
+	return yStart;
+}
+
+void Terrain::setYStart(const int &ystart)
+{
+	this->yStart = ystart;
+	palet->setY(palet->getY() - ystart/2);
 }

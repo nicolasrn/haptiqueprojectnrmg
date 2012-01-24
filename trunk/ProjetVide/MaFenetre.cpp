@@ -122,7 +122,7 @@ void MaFenetre::choix(wxCommandEvent& WXUNUSED(event))
 	}
 	catch(std::exception e)
 	{
-		wxMessageBox(e.what());
+		//wxMessageBox(e.what());
 	}
 	
 	controleur->stop();
