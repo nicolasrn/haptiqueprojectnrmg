@@ -79,6 +79,8 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 				vx = (collisione->getX() < palet->getX()) ? 1 : -1;
 				
 				palet->setVecteurDeplacement(vx, vy);
+				palet->setChanged();
+				palet->notifyObservers();
 			}
 
 			if (GestionCollision::isCircleGroundCollisionBetween(palet, terrain, &dx, &dy))
@@ -117,6 +119,8 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 					}
 				}
 				palet->setVecteurDeplacement(dx+palet->getVx(), dy+palet->getVy());
+				palet->setChanged();
+				palet->notifyObservers();
 			}
 			//si la souris haptique est présente, si collision entre raquette humain et palet alors declanchement
 			if (GestionnaireSouris::ActivationGestionnaire && collisione != NULL && collisione == terrain->getHuman())

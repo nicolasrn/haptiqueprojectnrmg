@@ -8,11 +8,12 @@
 #define __PALET__
 
 #include "Element.h"
+#include "Observer.h"
 
 /*!
  * \brief Représente le modele du palet
  */
-class Palet : public Element
+class Palet : public Element, public Observable
 {
 private:
 	//int xOld, yOld;/*!< Anciennes coordonnées */
