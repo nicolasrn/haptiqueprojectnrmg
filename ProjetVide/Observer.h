@@ -146,7 +146,7 @@ public:
 	 * Notify les observers
 	 * \param data : n'importe quel objet
 	 */
-	void notifyObservers(Data *data);
+	void notifyObservers(Data *data = NULL);
 };
 
 #endif

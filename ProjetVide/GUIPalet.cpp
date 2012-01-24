@@ -1,6 +1,6 @@
 #include "GUIPalet.h"
 
-GUIPalet::GUIPalet(Palet *palet) : palet(palet)
+GUIPalet::GUIPalet(Palet *palet) : Observer(), palet(palet), heurter(false)
 {
 }
 
@@ -16,5 +16,15 @@ void GUIPalet::dessiner(wxClientDC *dc)
 	wxBrush brush(rouge);
     dc->SetBrush(brush);
 
-	dc->DrawCircle(palet->getX(), palet->getY(), palet->getWidth());
+	if (!heurter)
+		dc->DrawCircle(palet->getX(), palet->getY(), palet->getWidth());
+	else
+		dc->DrawEllipse(palet->getX()-palet->getWidth()/2, palet->getY()-palet->getHeight()/2, palet->getWidth(), palet->getHeight()*0.77);
+
+	heurter = false;
+}
+
+void GUIPalet::update(Observable *o, Data *data)
+{
+	heurter = true;
 }

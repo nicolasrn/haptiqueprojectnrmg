@@ -11,14 +11,16 @@
 
 #include "elementaafficher.h"
 #include "Palet.h"
+#include "Observer.h"
 
 /*!
  * \brief représente la vue du palet
  */
-class GUIPalet : public ElementAAfficher
+class GUIPalet : public ElementAAfficher, public Observer
 {
 private:
 	Palet *palet; /*!< Le modele représentant le palet */
+	bool heurter;
 
 public:
 	/*!
@@ -40,6 +42,8 @@ public:
 	 * \param dc : ce qui permet de dessiner sur la zone cliente
 	 */
 	void dessiner(wxClientDC *dc);
+
+	void update(Observable *o, Data *data);
 };
 
 #endif
