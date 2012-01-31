@@ -56,8 +56,8 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 		//controle
 		Element *collisione = NULL;
 		Palet *palet = terrain->getPalet();
-		int vx = 0, vy = 0;
-		int dx = 0, dy = 0;
+		double vx = 0, vy = 0;
+		double dx = 0, dy = 0;
 		Controleur::marque = false;
 
 		if (humainPlayer->getScore() == 7 || IaPlayer->getScore() == 7)
@@ -75,8 +75,11 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 			{
 				//définition du vecteur de déplacement du palet
 				
-				vy = (collisione->getY() < palet->getY()) ? 1 : -1;
+				//vx = (collisione->getX() < palet->getX()) ? 1 : -1;
+				//vy = (collisione->getY() < palet->getY()) ? 1 : -1;
+				
 				vx = (collisione->getX() < palet->getX()) ? 1 : -1;
+				vy = (collisione->getY() < palet->getY()) ? 1 : -1;
 				
 				palet->setVecteurDeplacement(vx, vy);
 				palet->setChanged();

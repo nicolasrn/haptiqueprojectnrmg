@@ -26,7 +26,7 @@ public:
 	 * \param x : l'ordonnées
 	 * \param idJoueur : identifiant qui sert juste a attribuer une couleur différente aux raquettes entre 0 et 255
 	 */
-	Raquette(const int &x, const int &y, const int &idJoueur);
+	Raquette(const double &x, const int &y, const int &idJoueur);
 	
 	/*!
 	 * \brief Destructeur
@@ -45,6 +45,14 @@ public:
 	 * Getteur de idJoueur 
 	 */
 	void setIdJoueur(const int &idJoueur);
+
+	/*!
+	 * \brief Permet de deplacer la raquette
+	 * Permet de deplacer la raquette
+	 * \param x : l'abscisse
+	 * \param x : l'ordonnées
+	 */
+	void deplacer(const double &x, const double &y);
 };
 
 #endif

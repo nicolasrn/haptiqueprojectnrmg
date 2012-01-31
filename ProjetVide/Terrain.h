@@ -28,7 +28,7 @@ private:
 	Raquette *human, *ia;/*!< Raquete du joueur de l'ordinateur */
 	Palet *palet;/*!< Le palet */
 	But *butNord, *butSud; /*!< Represente les 2 buts */
-	int yStart; /*!< Position a partir de laquelle le terrain commence sur la GUI*/
+	double yStart; /*!< Position a partir de laquelle le terrain commence sur la GUI*/
 
 public:
 	/*!
@@ -37,7 +37,7 @@ public:
 	 * \param width : l'abscisse
 	 * \param height : l'ordonnées
 	 */
-	Terrain(const int &width, const int &height);
+	Terrain(const double &width, const double &height);
 	
 	/*!
 	 * \brief Destructeur
@@ -85,14 +85,20 @@ public:
 	 * \brief Getteur
 	 * Getteur du yStart
 	 */
-	int getYStart()const;
+	double getYStart()const;
 
 	/*!
 	 * \brief Setteur
 	 * Setteur du yStart
 	 * \param ystart : la position initial
 	 */
-	void setYStart(const int &ystart);
+	void setYStart(const double &ystart);
+	
+	/*!
+	 * \brief Setteur de la vitesse induite par le terrain
+	 * Setteur du vecteur de deplacement sur x
+	 */
+	virtual void setVitesseTerrain(const double &vitesseTerrain);
 };
 
 #endif

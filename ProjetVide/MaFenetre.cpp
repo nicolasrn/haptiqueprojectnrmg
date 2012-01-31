@@ -29,7 +29,13 @@ MaFenetre::MaFenetre(const wxString& title, const int &width, const int &height)
 	
 	this->terrain = new Terrain(width, height);
 	this->guiTerrain = new GUITerrain(this, terrain);
-	terrain->getPalet()->addObserver(guiTerrain->getGuiPalet());
+	
+	//mis dans Terrain(\.*)Haptique
+	//terrain->setVitesseTerrain(0.5);
+
+	//mis dans PaletElastiqueHaptique.h
+	//palet elastique
+	//terrain->getPalet()->addObserver(guiTerrain->getGuiPalet());
 	
 	this->controleur = new Controleur(terrain, guiTerrain);
 	this->controleurHaptique = new ControleurHaptique();

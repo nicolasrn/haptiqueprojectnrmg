@@ -16,6 +16,7 @@ TerrainGluantHaptique::TerrainGluantHaptique(GUITerrain *fenetre, Terrain *terra
 		mTexture->ChangePositiveBumpSpacing(1);
 		this->mEnclos->ChangeInsideEffect(mTexture);
 	}
+	terrain->setVitesseTerrain(.5);
 }
 
 TerrainGluantHaptique::~TerrainGluantHaptique()

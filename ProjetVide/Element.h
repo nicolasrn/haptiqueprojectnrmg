@@ -15,16 +15,19 @@ class Element
 {
 protected:
 	/*!< Abscisse */
-	int x;
+	double x;
 
 	/*!< Ordonnée */
-	int y;
+	double y;
 
 	/*!< largeur */
-	int width;
+	double width;
 
 	/*!< hauteur */
-	int height;
+	double height;
+	
+	/*!< coefficient de vitesse selon le contexte */
+	double vitesseTerrain;
 
 public:
 	/*!
@@ -33,7 +36,7 @@ public:
 	 * \param x : Abscisse
 	 * \param y : Ordonnée
 	 */
-	Element(const int &x, const int &y, const int &width = 0, const int &height = 0) : x(x), y(y), width(width), height(height)
+	Element(const double &x, const double &y, const double &width = 0, const double &height = 0, const double &vitesseTerrain = 1) : x(x), y(y), width(width), height(height), vitesseTerrain(vitesseTerrain)
 	{
 	}
 
@@ -41,7 +44,7 @@ public:
 	 * \brief Getteur de x
 	 * Getteur de x
 	 */
-	virtual int getX() const
+	virtual double getX() const
 	{
 		return x;
 	}
@@ -50,7 +53,7 @@ public:
 	 * \brief Getteur de y
 	 * Getteur de y
 	 */
-	virtual int getY() const
+	virtual double getY() const
 	{
 		return y;
 	}
@@ -60,7 +63,7 @@ public:
 	 * Setteur de x
 	 * \param x : nouvelle abscisse
 	 */
-	virtual void setX(const int &x)
+	virtual void setX(const double &x)
 	{
 		this->x = x;
 	}
@@ -70,7 +73,7 @@ public:
 	 * Setteur de y
 	 * \param y : nouvelle abscisse
 	 */
-	virtual void setY(const int &y)
+	virtual void setY(const double &y)
 	{
 		this->y = y;
 	}
@@ -79,7 +82,7 @@ public:
 	 * \brief Getteur de width
 	 * Getteur de width
 	 */
-	virtual int getWidth()const
+	virtual double getWidth()const
 	{
 		return width;
 	}
@@ -88,7 +91,7 @@ public:
 	 * \brief Getteur de height
 	 * Getteur de height
 	 */
-	virtual int getHeight()const
+	virtual double getHeight()const
 	{
 		return height;
 	}
@@ -97,7 +100,7 @@ public:
 	 * \brief Setteur de width
 	 * Setteur de width
 	 */
-	virtual void setWidth(const int &width)
+	virtual void setWidth(const double &width)
 	{
 		this->width = width;
 	}
@@ -106,11 +109,29 @@ public:
 	 * \brief Setteur de height
 	 * Setteur de height
 	 */
-	virtual void setHeight(const int &height)
+	virtual void setHeight(const double &height)
 	{
 		this->height = height;
 	}
-
+	
+	/*!
+	 * \brief Getteur de la vitesse induite par le terrain
+	 * Getteur du vecteur de deplacement sur x
+	 */
+	virtual double getVitesseTerrain()const
+	{
+		return vitesseTerrain;
+	}
+	
+	/*!
+	 * \brief Setteur de la vitesse induite par le terrain
+	 * Setteur du vecteur de deplacement sur x
+	 */
+	virtual void setVitesseTerrain(const double &vitesseTerrain)
+	{
+		this->vitesseTerrain = vitesseTerrain;
+	}
+	
 };
 
 #endif

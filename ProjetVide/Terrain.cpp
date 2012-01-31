@@ -1,6 +1,6 @@
 #include "Terrain.h"
 
-Terrain::Terrain(const int &width, const int &height) : Element(0, 0, width, height), yStart(0)
+Terrain::Terrain(const double &width, const double &height) : Element(0, 0, width, height), yStart(0)
 {
 	list = std::vector<Element*>();
 	//initialisation des composants
@@ -67,13 +67,21 @@ std::vector<Element*> Terrain::getList()
 	return list;
 }
 
-int Terrain::getYStart()const
+double Terrain::getYStart()const
 {
 	return yStart;
 }
 
-void Terrain::setYStart(const int &ystart)
+void Terrain::setYStart(const double &ystart)
 {
 	this->yStart = ystart;
 	palet->setY(palet->getY() - ystart/2);
+}
+
+void Terrain::setVitesseTerrain(const double &vitesseTerrain)
+{
+	Element::setVitesseTerrain(vitesseTerrain);
+	this->human->setVitesseTerrain(vitesseTerrain);
+	this->ia->setVitesseTerrain(vitesseTerrain);
+	this->palet->setVitesseTerrain(vitesseTerrain);
 }

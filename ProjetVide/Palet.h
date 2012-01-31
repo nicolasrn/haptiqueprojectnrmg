@@ -9,6 +9,7 @@
 
 #include "Element.h"
 #include "Observer.h"
+#include <ctime>
 
 /*!
  * \brief Représente le modele du palet
@@ -17,8 +18,10 @@ class Palet : public Element, public Observable
 {
 private:
 	//int xOld, yOld;/*!< Anciennes coordonnées */
-	int vx, vy; /*!< Coordonnee du vecteur de deplacement */
-
+	double vx, vy; /*!< Coordonnee du vecteur de deplacement */
+	clock_t ref;
+	clock_t delai;
+	
 public:
 	/*!
 	 * \brief Constructeur
@@ -26,7 +29,7 @@ public:
 	 * \param x : l'abscisse
 	 * \param x : l'ordonnées
 	 */
-	Palet(const int &x, const int &y);
+	Palet(const double &x, const double &y);
 	
 	/*!
 	 * \brief Destructeur
@@ -40,7 +43,7 @@ public:
 	 * \param vx : abscisse du vecteur
  	 * \param vy : ordonnee du vecteur
 	 */
-	void setVecteurDeplacement(const int &vx, const int &vy);
+	void setVecteurDeplacement(const double &vx, const double &vy);
 
 	/*!
 	 * \brief Lance le deplacement
@@ -52,7 +55,7 @@ public:
 	 * \brief Getteur du vecteur de deplacement sur x
 	 * Getteur du vecteur de deplacement sur x
 	 */
-	int getVx()const
+	double getVx()const
 	{
 		return vx;
 	}
@@ -61,7 +64,7 @@ public:
 	 * \brief Getteur du vecteur de deplacement sur y
 	 * Getteur du vecteur de deplacement sur y
 	 */
-	int getVy()const
+	double getVy()const
 	{
 		return vy;
 	}

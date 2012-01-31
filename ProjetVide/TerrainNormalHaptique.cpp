@@ -15,7 +15,7 @@ TerrainNormalHaptique::TerrainNormalHaptique(GUITerrain *fenetre, Terrain *terra
 		}
 		this->mEnclos->ChangeInsideEffect(mFriction);
 	}
-
+	terrain->setVitesseTerrain(1);
 }
 
 TerrainNormalHaptique::~TerrainNormalHaptique()

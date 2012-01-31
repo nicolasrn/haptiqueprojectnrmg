@@ -13,6 +13,9 @@ PaletElastiqueHaptique::PaletElastiqueHaptique(GUITerrain *fenetre, Terrain *ter
 		}
 		ressort->ChangeDuration(500);
 	}
+	
+	//palet elastique
+	terrain->getPalet()->addObserver(fenetre->getGuiPalet());
 }
 
 

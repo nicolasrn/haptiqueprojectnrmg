@@ -52,7 +52,7 @@ public:
 	 * \param dy : resolution de la direction
 	 * \return bool : true si ou false sinon
 	 */
-	static bool isCircleGroundCollisionBetween(Palet *p, Terrain *t, int *dx, int *dy);
+	static bool isCircleGroundCollisionBetween(Palet *p, Terrain *t, double *dx, double *dy);
 };
 
 #endif
