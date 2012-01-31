@@ -48,8 +48,9 @@ void GUITerrain::onSourisMove(wxMouseEvent& event)
 {
 	//wxMessageBox( wxT(wxString::Format("%d", event.GetX()) + " " + wxString::Format("%d", event.GetY())), wxT("Info mouse motion"), wxICON_INFORMATION);
 	//modification du modèle
-	terrain->getHuman()->setX(event.GetX());
-	terrain->getHuman()->setY(event.GetY());
+	//terrain->getHuman()->setX(event.GetX());
+	//terrain->getHuman()->setY(event.GetY());
+	terrain->getHuman()->deplacer(event.GetX(), event.GetY());
 }
 
 GUIBandeau* GUITerrain::getBandeau()const

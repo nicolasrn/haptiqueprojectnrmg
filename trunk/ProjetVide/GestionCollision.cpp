@@ -19,7 +19,7 @@ bool GestionCollision::isCircleCollisionBetween(Palet *a, std::vector<Element *>
 	return false;
 }
 
-bool GestionCollision::isCircleGroundCollisionBetween(Palet *p, Terrain *t, int *dx, int *dy)
+bool GestionCollision::isCircleGroundCollisionBetween(Palet *p, Terrain *t, double *dx, double *dy)
 {
 	bool collision = false;
 	//détection a gauche du terrain

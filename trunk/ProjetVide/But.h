@@ -24,7 +24,7 @@ public:
 	 * \param y : ordonnee
 	 * \param width : la taille
 	 */
-	But(const int &x, const int &y, const int &widht);
+	But(const double &x, const double &y, const double &width);
 	
 	/*!
 	 * \brief Destructeur
