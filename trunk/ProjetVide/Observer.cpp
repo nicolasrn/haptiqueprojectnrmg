@@ -27,8 +27,13 @@ void Observable::clearChanged()
 void Observable::deleteObserver(Observer *o)
 {
 	for(std::vector<Observer*>::iterator i = list.begin(); i != list.end(); ++i)
+	{
 		if ((*i) == o)
+		{
 			list.erase(i);
+			break;
+		}
+	}
 }
 	
 void Observable::deleteObservers()
