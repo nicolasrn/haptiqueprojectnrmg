@@ -17,7 +17,7 @@
   <Class Name="Element" Collapsed="true">
     <Position X="13.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAAAAAAAAAAAQAQAgGAAAAAAAAQAAAAABgAGAAAAA=</HashCode>
+      <HashCode>QAAABAAAAAAAAAQAQAgGAAAIAAAAQAAEIABgAGACAAA=</HashCode>
       <FileName>Element.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -45,21 +45,21 @@
   <Class Name="Palet" Collapsed="true">
     <Position X="17.25" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>kAAAAAAAAAAAAAAAAgAAAAAAAAAAgAAAAAAAAANQAAA=</HashCode>
+      <HashCode>kAAAAAAAAAAAAAAAAgIAAAAAAAAAgAAAAAAIAANQAAA=</HashCode>
       <FileName>Palet.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Raquette" Collapsed="true">
     <Position X="10.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQAAAAAAA=</HashCode>
+      <HashCode>AAAAAgAAEAAAAAAAAQAAAAAAAAAAAAAAAAQQAAAAAAA=</HashCode>
       <FileName>Raquette.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Terrain" Collapsed="true">
     <Position X="15" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BSAAAgEAAQECIAAAAQAQAAAAAgAAAAiAAEAAAgAAAAA=</HashCode>
+      <HashCode>BSAAAgEAAQECIAAAAQAQAAAIAgAAAAiAAEAAAgAAAAA=</HashCode>
       <FileName>Terrain.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -101,7 +101,7 @@
   <Class Name="PaletElastiqueHaptique" Collapsed="true">
     <Position X="9" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAgCAAAAAAAAAAAAAAABAAAIAAIAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAgCgAAAAAAAAAAAAAABAAAIAAIAAAAAAEAAA=</HashCode>
       <FileName>PaletElastiqueHaptique.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -143,14 +143,14 @@
   <Class Name="TerrainGluantHaptique" Collapsed="true">
     <Position X="21.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAABAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAACAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>TerrainGluantHaptique.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Controleur" Collapsed="true">
     <Position X="10.5" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEQgAAAEAAAAECAgAAEAAAAAAAAgAAAgAAAAAABABAA=</HashCode>
+      <HashCode>AEQgAAAEAAAAECBgAAEAAAAAAAAgAAAgAAAAAABABAA=</HashCode>
       <FileName>Controleur.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -234,7 +234,7 @@
   <Class Name="GUIPalet" Collapsed="true">
     <Position X="5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAgAAAAAABAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AQAAAAAAAAAAgAAAAIIBAAQAAAAAAAAAAAAIAAAEAAA=</HashCode>
       <FileName>GUIPalet.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -283,14 +283,14 @@
   <Class Name="MaFenetre" Collapsed="true">
     <Position X="23.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAEAQAQACAIAAAAAAAAAAAQIECIABAFAA=</HashCode>
+      <HashCode>AAIAAAAAAAAAUAQAQhCiIgAAAAAgAAAAUIECIAhAFAA=</HashCode>
       <FileName>MaFenetre.h</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="__unnamed_enum_0002_1" Collapsed="true">
     <Position X="23.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAQAAACEAAAAABBCAAAAAAAABAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAgAAAQAAACEAAAAABBCAAAAAAAABAAA=</HashCode>
       <FileName>MaFenetre.h</FileName>
     </TypeIdentifier>
   </Enum>

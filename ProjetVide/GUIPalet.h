@@ -22,6 +22,9 @@ private:
 	Palet *palet; /*!< Le modele représentant le palet */
 	bool heurter;
 
+	time_t ref;
+	time_t delai;
+
 public:
 	/*!
 	 * \brief Constructeur
