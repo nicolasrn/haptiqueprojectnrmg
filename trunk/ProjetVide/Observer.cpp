@@ -35,7 +35,7 @@ void Observable::deleteObserver(Observer *o)
 		}
 	}
 }
-	
+
 void Observable::deleteObservers()
 {
 	list.clear();
