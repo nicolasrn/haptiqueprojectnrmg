@@ -9,6 +9,7 @@
 #pragma once
 
 /*!
+ * \brief Classe abstraite représentant un element metier
  * Classe abstraite représentant un element metier
  */
 class Element
@@ -35,6 +36,9 @@ public:
 	 * Constructeur de l'objet
 	 * \param x : Abscisse
 	 * \param y : Ordonnée
+	 * \param width : la largeur
+	 * \param height : la hauteur
+	 * \param vitesseTerrain : la vitesse
 	 */
 	Element(const double &x, const double &y, const double &width = 0, const double &height = 0, const double &vitesseTerrain = 1) : x(x), y(y), width(width), height(height), vitesseTerrain(vitesseTerrain)
 	{

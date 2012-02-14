@@ -20,10 +20,10 @@ class GUIPalet : public ElementAAfficher, public Observer
 {
 private:
 	Palet *palet; /*!< Le modele représentant le palet */
-	bool heurter;
+	bool heurter;/*!< pour savoir si il y a eu un coup */
 
-	time_t ref;
-	time_t delai;
+	time_t ref;/*!< temps de reference */
+	time_t delai;/*!< delai d'attente */
 
 public:
 	/*!
@@ -45,7 +45,13 @@ public:
 	 * \param dc : ce qui permet de dessiner sur la zone cliente
 	 */
 	void dessiner(wxClientDC *dc);
-
+	
+	/*!
+	 * \brief Méthode de mise a jour
+	 * Méthode de mise a jour via notifyObservers
+	 * \param o : l'observable
+	 * \param data : la donnée a transmettre
+	 */
 	void update(Observable *o, Data *data);
 };
 

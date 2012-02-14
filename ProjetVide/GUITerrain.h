@@ -37,7 +37,7 @@ protected:
 	GUIRaquette *guiHuman, *guiIA; /*!< La vue raquette */
 	GUIPalet *guiPalet; /*!< La vue du palet */
 	GUIBut *guiButNord, *guiButSud; /*!< La vue des buts */
-	GUIBandeau *bandeau;
+	GUIBandeau *bandeau;/*!<Le bandeau */
 
 public:
 	/*!
@@ -98,39 +98,74 @@ public:
 	DECLARE_EVENT_TABLE();
 };
 
+/*!
+ * \brief GUI pour l'affichage du texte
+ * GUI pour l'affichage du texte
+ */
 class GUIText : public Observer
 {
 protected:
-	wxStaticText *label;
-	wxString cntStatic;
+	wxStaticText *label;/*!<Le label */
+	wxString cntStatic;/*!<Le texte */
 
 public:
+	/*!
+	 * \brief Constructeur
+	 * Constructeur
+	 * \param parent : l'objet parent
+	 * \param cnt : la chaine
+	 */
 	GUIText(GUITerrain *parent, const wxString &cnt) : Observer(), cntStatic(cnt)
 	{
 		label = new wxStaticText(parent, wxID_ANY, cnt);
 	}
-
+	
+	/*!
+	 * \brief Destructeur
+	 * Destructeur
+	 * \param str : la chaine a concatener
+	 */
 	void concat(const wxString &str)
 	{
 		wxString tmp = cntStatic;
 		tmp.append(str);
 		label->SetLabel(tmp);
 	}
-
+	
+	/*!
+	 * \brief Pour la mise a jour
+	 * Pour la mise a jour via notifyObservers
+	 * \param o : l'observable
+	 * \param data : la donnée a transmettre
+	 */
 	void update(Observable *WXUNUSED(o), Data *data)
 	{
 		this->concat(wxString::Format("%d", ((DataScore*)data)->score));
 	}
 
+	/*!
+	 * \brief Getteur de la taille
+	 * Getteur de la taille
+	 * \return int
+	 */
 	int getHeight()const
 	{
 		return this->label->GetSize().GetHeight();
 	}
 };
 
+/*!
+ * \brief GUIScoreHuman pour l'affichage du texte
+ * GUIScoreHuman pour l'affichage du texte
+ */
 class GUIScoreHuman : public GUIText
 {
 public:
+	/*!
+	 * \brief Constructeur
+	 * Constructeur
+	 * \param parent : l'objet parent
+	 */
 	GUIScoreHuman(GUITerrain *parent) : GUIText(parent, "Human ")
 	{
 		label->SetPosition(wxPoint(100, 0));
@@ -138,9 +173,18 @@ public:
 	}
 };
 
+/*!
+ * \brief GUIScoreIA pour l'affichage du texte
+ * GUIScoreIA pour l'affichage du texte
+ */
 class GUIScoreIA : public GUIText
 {
 public:
+	/*!
+	 * \brief Constructeur
+	 * Constructeur
+	 * \param parent : l'objet parent
+	 */
 	GUIScoreIA(GUITerrain *parent) : GUIText(parent, "IA ")
 	{
 		label->SetPosition(wxPoint(200, 0));
@@ -148,14 +192,22 @@ public:
 	}
 };
 
+/*!
+ * \brief GUIBandeau pour l'affichage du texte
+ * GUIBandeau pour l'affichage du texte
+ */
 class GUIBandeau
 {
 private:
-	GUIText *text;
-	GUIScoreHuman *sHuman;
-	GUIScoreIA *sIA;
+	GUIText *text;/*!<GUI du texte a affihcher */
+	GUIScoreHuman *sHuman;/*!< GUI pour le score joueur */
+	GUIScoreIA *sIA;/*!< GUI pour le score ia */
 
 public:
+	/*!
+	 * \brief Constructeur
+	 * \param parent : le pere
+	 */
 	GUIBandeau(GUITerrain *parent)
 	{
 		text = new GUIText(parent, "Score : ");
@@ -163,6 +215,10 @@ public:
 		sIA = new GUIScoreIA(parent);
 	}
 
+	/*!
+	 * \brief Destructeur
+	 * Destructeur
+	 */
 	virtual ~GUIBandeau()
 	{
 		delete text;
@@ -174,16 +230,30 @@ public:
 		sIA = NULL;
 	}
 	
+	/*!
+	 * \brief getter de la taille
+	 * \return int
+	 */
 	int getHeight()const
 	{
 		return sIA->getHeight();//std::max(sIA->getHeight(), std::max(text->getHeight(), sHuman->getHeight()));
 	}
-
+	
+	/*!
+	 * \brief Getteur de la gui score humain
+	 * Getteur de la gui score humain
+	 * \return GUIScoreHuman
+	 */
 	GUIScoreHuman* getGUIScoreHuman()
 	{
 		return this->sHuman;
 	}
 	
+	/*!
+	 * \brief Getteur de la gui score ia
+	 * Getteur de la gui score ia
+	 * \return GUIScoreHuman
+	 */
 	GUIScoreIA* getGUIScoreIA()
 	{
 		return this->sIA;

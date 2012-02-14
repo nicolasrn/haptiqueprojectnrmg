@@ -16,15 +16,15 @@
 class Raquette : public Element
 {
 private:
-	int idJoueur;
-	double vecteurDirecteurX;
+	int idJoueur; /*!< un identifiant pour la distinction des raquettes */
+	double vecteurDirecteurX; /*!< vecteur directeur sur x */
 
 public:
 	/*!
 	 * \brief Constructeur
 	 * Constructeur du modele
 	 * \param x : l'abscisse
-	 * \param x : l'ordonnées
+	 * \param y : l'ordonnées
 	 * \param idJoueur : identifiant qui sert juste a attribuer une couleur différente aux raquettes entre 0 et 255
 	 */
 	Raquette(const double &x, const int &y, const int &idJoueur);
@@ -42,8 +42,9 @@ public:
 	int getIdJoueur()const;
 	
 	/*!
-	 * \brief Getteur de idJoueur
-	 * Getteur de idJoueur 
+	 * \brief Setteur de idJoueur
+	 * Setteur de idJoueur
+	 * \param idJoueur : un id
 	 */
 	void setIdJoueur(const int &idJoueur);
 
@@ -51,7 +52,7 @@ public:
 	 * \brief Permet de deplacer la raquette en (x, y)
 	 * Permet de deplacer la raquette
 	 * \param x : l'abscisse
-	 * \param x : l'ordonnées
+	 * \param y : l'ordonnées
 	 */
 	void deplacer(const double &x, const double &y);
 	

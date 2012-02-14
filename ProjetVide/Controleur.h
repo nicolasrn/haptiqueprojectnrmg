@@ -56,7 +56,7 @@ public:
 	/*!
 	 * \brief Permet de lancer le timer
 	 * Permet de lancer le timer
-	 * \param int : le temps
+	 * \param ms : le temps en milliseconde
 	 */
 	void start(int ms = 0);
 	

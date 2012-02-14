@@ -1,5 +1,5 @@
 /*!
- * \file ManApp.h
+ * \file MonApp.h
  * Fichier de base d'application
  */
 

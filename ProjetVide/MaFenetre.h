@@ -36,7 +36,7 @@
 	#include "PaletElastiqueHaptique.h"
 
 	/*!
-	 * \enum 
+	 * \enum identifiant bouton
 	 * \brief Liste d'identifiant de la fenetre
 	 * Liste d'identifiant de la fenetre
 	 */
