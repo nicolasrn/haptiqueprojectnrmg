@@ -12,6 +12,8 @@ Controleur::Controleur(Terrain *terrain, GUITerrain *guiTerrain) :
 	Controleur::marque = false;
 	this->humainPlayer->addObserver(this->guiTerrain->getBandeau()->getGUIScoreHuman());
 	this->IaPlayer->addObserver(this->guiTerrain->getBandeau()->getGUIScoreIA());
+
+	srand((unsigned int)time(NULL));
 }
 
 Controleur::~Controleur()
@@ -118,6 +120,9 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 						palet->setVecteurDeplacement(0, 0);
 						palet->setX(terrain->getWidth()/2);
 						palet->setY((terrain->getHeight()/2 - terrain->getYStart()/2));
+
+						terrain->getIa()->setVecteurX(0);
+
 						dx = dy = 0;
 					}
 				}
@@ -134,6 +139,9 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 				this->notifyObservers(&data);
 			}
 			palet->compute();
+			if ((vx + dx != 0 && rand() % 3) || (terrain->getIa()->getX() < 0 || terrain->getIa()->getX() > terrain->getWidth() - terrain->getIa()->getWidth()))
+				terrain->getIa()->setVecteurX(vx + dx);
+			terrain->getIa()->deplacer();
 			
 			//mise à jour de la vue
 			wxClientDC dc(guiTerrain);
