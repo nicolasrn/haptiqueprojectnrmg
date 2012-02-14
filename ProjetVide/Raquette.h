@@ -17,6 +17,7 @@ class Raquette : public Element
 {
 private:
 	int idJoueur;
+	double vecteurDirecteurX;
 
 public:
 	/*!
@@ -47,12 +48,24 @@ public:
 	void setIdJoueur(const int &idJoueur);
 
 	/*!
-	 * \brief Permet de deplacer la raquette
+	 * \brief Permet de deplacer la raquette en (x, y)
 	 * Permet de deplacer la raquette
 	 * \param x : l'abscisse
 	 * \param x : l'ordonnées
 	 */
 	void deplacer(const double &x, const double &y);
+	
+	/*!
+	 * \brief Permet de deplacer la raquette
+	 * Permet de deplacer la raquette suivant vecteurDirecteurX
+	 */
+	void deplacer();
+
+	/*!
+	 * \brief Setter du vecteur directeur de X
+	 * \param vx : le vecteur
+	 */
+	void setVecteurX(const double &vx);
 };
 
 #endif
