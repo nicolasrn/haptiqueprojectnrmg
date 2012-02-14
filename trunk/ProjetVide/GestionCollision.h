@@ -37,7 +37,7 @@ public:
 	 * \brief charge de detecter les collisions entre des objets circulaires
 	 * charge de detecter les collisions entre des objets circulaires
 	 * \param a : le palet
-	 * \param b : le reste
+	 * \param list : le vecteur d'element
 	 * \param elt : en sortie retourne l'objet qui est entré en collision avec le palet
 	 * \return bool : true si ou false sinon
 	 */
@@ -46,8 +46,8 @@ public:
 	/*!
 	 * \brief charge de detecter les collisions entre des objets cercle et le terrain
 	 * charge de detecter les collisions entre des objets cercle et le terrain
-	 * \param A : le palet
-	 * \param B : le terrain
+	 * \param p : le palet
+	 * \param t : le terrain
 	 * \param dx : resolution de la direction
 	 * \param dy : resolution de la direction
 	 * \return bool : true si ou false sinon

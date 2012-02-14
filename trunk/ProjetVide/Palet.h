@@ -19,15 +19,15 @@ class Palet : public Element, public Observable
 private:
 	//int xOld, yOld;/*!< Anciennes coordonnées */
 	double vx, vy; /*!< Coordonnee du vecteur de deplacement */
-	clock_t ref;
-	clock_t delai;
+	clock_t ref; /*!< le temps de reference */
+	clock_t delai; /*!< le delai d'attente */
 	
 public:
 	/*!
 	 * \brief Constructeur
 	 * Constructeur du modele
 	 * \param x : l'abscisse
-	 * \param x : l'ordonnées
+	 * \param y : l'ordonnées
 	 */
 	Palet(const double &x, const double &y);
 	

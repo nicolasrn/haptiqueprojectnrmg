@@ -13,9 +13,16 @@
 class Observer;
 class Observable;
 
+/*!
+ * \brief classe permettant de faire la liason de données entre l'observer et l'observable
+ */
 class Data
 {
 public:
+	/*!
+	 * \brief Destructeur virtuel
+	 * Destructeur virtuel
+	 */
 	virtual ~Data()
 	{
 	}
@@ -26,47 +33,88 @@ public:
 	}*/
 };
 
+/*!
+ * \brief classe permettant de faire la liason de données entre l'observer et l'observable
+ */
 class DataScore : public Data
 {
 public:
-	unsigned int score;
+	unsigned int score;/*!< Le score joueur */
 	
+	/*!
+	 * \brief Constructeur
+	 * Constructeur
+	 * \param score : le score a transmettre
+	 */
 	DataScore(const unsigned int &score) : Data(), score(score)
 	{
 	}
-
+	
+	/*!
+	 * \brief Destructeur virtuel
+	 * Destructeur virtuel
+	 */
 	virtual ~DataScore()
 	{
 	}
 };
 
+/*!
+ * \brief classe permettant de faire la liason de données entre l'observer et l'observable
+ */
 class DataCoordonnee : public Data
 {
 public:
-	unsigned int x, y;
-	int vx, vy;
-
+	unsigned int x/*!< coordonnées x */, y;/*!< coordonnées y */
+	int vx/*!< vecteur de deplacement vx */, vy;/*!< vecteur de deplacement vy */
+	
+	/*!
+	 * \brief Constructeur
+	 * Constructeur
+	 * \param x : abscisse
+	 * \param y : ordonnée
+	 * \param vx : vecteur de l'abscisse
+	 * \param vy : vecteur de l'ordonnée
+	 */
 	DataCoordonnee(const unsigned int &x, const unsigned int &y, const int &vx, const int &vy) : 
 		Data(), x(x), y(y), vx(vx), vy(vy)
 	{
 	}
-
+		
+	/*!
+	 * \brief Destructeur virtuel
+	 * Destructeur virtuel
+	 */
 	virtual ~DataCoordonnee()
 	{
 	}
 };
 
+/*!
+ * \brief classe permettant de faire la liason de données entre l'observer et l'observable
+ */
 class DataBut : public Data
 {
 public:
+	/*!
+	 * \brief Destructeur virtuel
+	 * Destructeur virtuel
+	 */
 	virtual ~DataBut()
 	{
 	}
 };
 
+/*!
+ * \brief classe permettant de faire la liason de données entre l'observer et l'observable
+ */
 class DataFinPartie : public Data
 {
 public:
+	/*!
+	 * \brief Destructeur virtuel
+	 * Destructeur virtuel
+	 */
 	virtual ~DataFinPartie()
 	{
 	}

@@ -1,3 +1,8 @@
+/*!
+ * \file Joueur.h
+ * Fichier concernant un Joueur
+ */
+
 #pragma once
 
 #ifndef __JOUEUR__
@@ -56,6 +61,10 @@ public:
 	}
 };
 
+/*!
+ * \brief Classe designant un joueur Humain
+ * Classe designant un joueur Humain
+ */
 class JoueurHuman : public Joueur
 {
 public:
@@ -64,6 +73,10 @@ public:
 	}
 };
 
+/*!
+ * \brief Classe designant un joueur IA
+ * Classe designant un joueur IA
+ */
 class JoueurIA : public Joueur
 {
 public:
