@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MonApp" Collapsed="true">
+    <Position X="24.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>MonApp.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="But" Collapsed="true">
+    <Position X="2.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>But.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Element" Collapsed="true">
+    <Position X="2.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABAAAAAAAAAQAQAgGAAAIAAAAQAAEIABgAGACAAA=</HashCode>
+      <FileName>Element.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Joueur" Collapsed="true">
+    <Position X="9" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAIAAAAAAAACACAIAAAAAAAAAA=</HashCode>
+      <FileName>Joueur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JoueurHuman" Collapsed="true">
+    <Position X="7.75" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Joueur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JoueurIA" Collapsed="true">
+    <Position X="10" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Joueur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Palet" Collapsed="true">
+    <Position X="2.75" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kAAAAAAAAAAAAAAAAgIAAAAAAAAAgAAAAAAIAANQAAA=</HashCode>
+      <FileName>Palet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Raquette" Collapsed="true">
+    <Position X="0.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAEAAAAABABQAAAAAAAAAAAAAAAAQQAAAAAAA=</HashCode>
+      <FileName>Raquette.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Terrain" Collapsed="true">
+    <Position X="5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BSAAAgEAAQECIAAAAQAQAAAIAgAAAAiAAEAAAgAAAAA=</HashCode>
+      <FileName>Terrain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButHaptique" Collapsed="true">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAAAAAAAAAAAAAAAAAAIAAIgAAAgAEAAA=</HashCode>
+      <FileName>ButHaptique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DebutPartie" Collapsed="true">
+    <Position X="13.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAACIAAAAIAAIAAAAAAAAAE=</HashCode>
+      <FileName>DebutPartie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElementHaptique" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACEQAAAAAAEEAAAAAAAAAIQAIAAAAAAAIAA=</HashCode>
+      <FileName>ElementHaptique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinPartie" Collapsed="true">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAAAAAAAAAAAAAAAIAAIAAAAAAEAAE=</HashCode>
+      <FileName>FinPartie.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionnaireSouris" Collapsed="true">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAIAAAAEAAAAAAASAAAAAAAQAAAAABAAAAAA=</HashCode>
+      <FileName>GestionnaireSouris.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PaletElastiqueHaptique" Collapsed="true">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCgAAAAAAAAAAAAAABAAAIAAIAAAAAAEAAA=</HashCode>
+      <FileName>PaletElastiqueHaptique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PaletHaptique" Collapsed="true">
+    <Position X="9" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAACAAAAAAIAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>PaletHaptique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PaletSolidHaptique" Collapsed="true">
+    <Position X="10.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAACAAAAAACAAAAAAAAEAAAIQAIAAAAAAEAAA=</HashCode>
+      <FileName>PaletSolidHaptique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TerrainHaptique" Collapsed="true">
+    <Position X="18" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAEAAAAAAAEAAAgAIAAIAAIAAAAABAAAA=</HashCode>
+      <FileName>TerrainHaptique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TerrainNormalHaptique" Collapsed="true">
+    <Position X="15.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAACAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>TerrainNormalHaptique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TerrainTresGlissantHaptique" Collapsed="true">
+    <Position X="18" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>TerrainTresGlissantHaptique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TerrainGluantHaptique" Collapsed="true">
+    <Position X="20.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAACAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>TerrainGluantHaptique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Controleur" Collapsed="true">
+    <Position X="5.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQgAAAEAAAAECBgAAEAAAAAAAAgAAAgAAAAAABABAA=</HashCode>
+      <FileName>Controleur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleurHaptique" Collapsed="true">
+    <Position X="9" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAigAACAAAAAAAAAAAAAAAAAAAIQAIAAAAAACAAA=</HashCode>
+      <FileName>ControleurHaptique.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GestionCollision" Collapsed="true">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAEAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GestionCollision.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data" Collapsed="true">
+    <Position X="10.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Observer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataScore" Collapsed="true">
+    <Position X="9.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAIAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Observer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataCoordonnee" Collapsed="true">
+    <Position X="12" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAgAAAAAAAAAAgAACAAAAAAAAAAAAABgAAAAAAA=</HashCode>
+      <FileName>Observer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataBut" Collapsed="true">
+    <Position X="14.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Observer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataFinPartie" Collapsed="true">
+    <Position X="7.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Observer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Observer" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Observer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Observable" Collapsed="true">
+    <Position X="7.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAgAAQAAAIAAAQAAAAAQAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Observer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElementAAfficher" Collapsed="true">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ElementAAfficher.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUIBut" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIACAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GUIBut.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUIPalet" Collapsed="true">
+    <Position X="4.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAgAAAAIIBAAQAAAAAAAAAAAAIAAAEAAA=</HashCode>
+      <FileName>GUIPalet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUIRaquette" Collapsed="true">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAQAAAAABAAAABAAAAAAAAA=</HashCode>
+      <FileName>GUIRaquette.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUITerrain" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABBAAEAAAAQAACAUAAAAgAAAIAAAAAARAQSA=</HashCode>
+      <FileName>GUITerrain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUIText" Collapsed="true">
+    <Position X="2" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAABAAAAAAAAAAAAAAQAAAAAAAABAEIAA=</HashCode>
+      <FileName>GUITerrain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUIScoreHuman" Collapsed="true">
+    <Position X="1" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GUITerrain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUIScoreIA" Collapsed="true">
+    <Position X="3.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GUITerrain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUIBandeau" Collapsed="true">
+    <Position X="26.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECAABAAAAAAAAQAAAggAAAAAAAAQAAIAAAAAAAAAAA=</HashCode>
+      <FileName>GUITerrain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MaFenetre" Collapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAUAQAQhCiIgAAAAAgAAAAUIECIAhAFAA=</HashCode>
+      <FileName>MaFenetre.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="__unnamed_enum_0002_1" Collapsed="true">
+    <Position X="22.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAQAAACEAAAAABBCAAAAAAAABAAA=</HashCode>
+      <FileName>MaFenetre.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
