@@ -34,3 +34,8 @@ void Raquette::setVecteurX(const double &vx)
 {
 	this->vecteurDirecteurX = vx;
 }
+
+double Raquette::getVecteurX()const
+{
+	return this->vecteurDirecteurX;
+}
