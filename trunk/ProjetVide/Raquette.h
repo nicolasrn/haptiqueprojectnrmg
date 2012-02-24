@@ -38,6 +38,7 @@ public:
 	/*!
 	 * \brief Getteur de idJoueur
 	 * Getteur de idJoueur 
+	 * \return int
 	 */
 	int getIdJoueur()const;
 	
@@ -67,6 +68,12 @@ public:
 	 * \param vx : le vecteur
 	 */
 	void setVecteurX(const double &vx);
+	
+	/*!
+	 * \brief Getter du vecteur directeur de X
+	 * \return double
+	 */
+	double getVecteurX()const;
 };
 
 #endif

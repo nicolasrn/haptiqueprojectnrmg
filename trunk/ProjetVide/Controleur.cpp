@@ -138,9 +138,15 @@ void Controleur::compute(wxTimerEvent& WXUNUSED(event))
 				DataCoordonnee data(palet->getX(), palet->getY(), vx, vy);
 				this->notifyObservers(&data);
 			}
+
 			palet->compute();
 			if ((vx + dx != 0 && rand() % 3) || (terrain->getIa()->getX() < 0 || terrain->getIa()->getX() > terrain->getWidth() - terrain->getIa()->getWidth()))
-				terrain->getIa()->setVecteurX(vx + dx);
+			terrain->getIa()->setVecteurX(vx + dx);
+
+			if (terrain->getIa()->getX() + terrain->getIa()->getVecteurX() <= 0
+				|| terrain->getIa()->getX() + terrain->getIa()->getVecteurX() >= terrain->getWidth())
+				terrain->getIa()->setVecteurX(0);
+			
 			terrain->getIa()->deplacer();
 			
 			//mise à jour de la vue
