@@ -159,7 +159,7 @@ void MaFenetre::choix(wxCommandEvent& WXUNUSED(event))
 	controleur->deleteObservers();
 	controleurHaptique->removeAll();
 
-	if (GestionnaireSouris::ActivationGestionnaire)
+	if (GestionnaireSouris::ActivationGestionnaire) //souris haptique
 	{
 		butHaptique = new ButHaptique();
 		debutPartie = new DebutPartie();
@@ -191,7 +191,20 @@ void MaFenetre::choix(wxCommandEvent& WXUNUSED(event))
 		controleur->addObserver(butHaptique);
 		controleur->addObserver(finPartie);
 	}
+	else //pas de souris haptique
+	{
+		if (paletElastique->IsChecked())
+			terrain->getPalet()->addObserver(guiTerrain->getGuiPalet());
+		else
+			terrain->getPalet()->deleteObserver(guiTerrain->getGuiPalet());
 
+		if (terrainNormal->IsChecked())
+			terrain->setVitesseTerrain(1);
+		else if (terrainGlissant->IsChecked())
+			terrain->setVitesseTerrain(2);
+		else if (terrainGluant->IsChecked())
+			terrain->setVitesseTerrain(0.5);
+	}
 	this->controleurHaptique->Start();
 	this->controleur->start();
 }
