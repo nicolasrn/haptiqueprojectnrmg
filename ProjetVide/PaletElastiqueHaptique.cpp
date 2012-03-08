@@ -25,6 +25,7 @@ PaletElastiqueHaptique::~PaletElastiqueHaptique()
 		delete ressort;
 	ressort = NULL;
 	terrain->getPalet()->deleteObserver(fenetre->getGuiPalet());
+	terrain->getPalet()->deleteObservers();
 }
 
 void PaletElastiqueHaptique::recentrer()

@@ -196,7 +196,10 @@ void MaFenetre::choix(wxCommandEvent& WXUNUSED(event))
 		if (paletElastique->IsChecked())
 			terrain->getPalet()->addObserver(guiTerrain->getGuiPalet());
 		else
+		{
 			terrain->getPalet()->deleteObserver(guiTerrain->getGuiPalet());
+			terrain->getPalet()->deleteObservers();
+		}
 
 		if (terrainNormal->IsChecked())
 			terrain->setVitesseTerrain(1);
